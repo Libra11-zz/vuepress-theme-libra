@@ -8,6 +8,11 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
-    "vuepress": "^1.5.2"
+    "vuepress": "^1.5.4"
+  },
+  "dependencies": {
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "vue-particles": "^1.0.9"
   }
 }

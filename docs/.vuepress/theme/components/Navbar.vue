@@ -25,7 +25,11 @@
     </ul>
     <div class="search">
       <i class="iconfont iconsearch"></i>
-      <input placeholder="请输入搜索的内容..." class="search-input" type="text" />
+      <input
+        placeholder="请输入搜索的内容..."
+        class="search-input"
+        type="text"
+      />
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
       <i class="iconfont iconnav"></i>
@@ -48,12 +52,12 @@
           <i class="mail">libra085925@gmail.com</i>
           <div class="statistics">
             <span class="articles">
-              {{totalCount}}
+              {{ totalCount }}
               <i class="white">&nbsp;文章</i>
             </span>
             <span class="verticle-line white">|</span>
             <span class="link">
-              {{categoryCount}}
+              {{ categoryCount }}
               <i class="white">&nbsp;分类</i>
             </span>
           </div>
@@ -108,16 +112,252 @@ export default {
     return {
       showNav: false,
       totalCount: 0,
-      categoryCount: 0
+      categoryCount: 0,
     };
   },
   methods: {
     handleMobileNav() {
       this.showNav = !this.showNav;
-    }
-  }
+    },
+  },
+  created() {
+    console.log("Libra");
+  },
 };
 </script>
 
 <style lang="less">
+@import "@theme/common/color.less";
+.topbar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    @media (max-width: 992px) {
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+    }
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 0.5px solid @whiteColor4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+    margin: 0 0 0 20px;
+    &:hover {
+      border-color: @whiteColor;
+      cursor: pointer;
+      .logo-text {
+        color: @whiteColor;
+      }
+    }
+    .logo-text {
+      @media (max-width: 992px) {
+        font-size: 16px;
+      }
+      font-size: 24px;
+      color: @whiteColor4;
+      transition: 0.5s all;
+    }
+  }
+  .menu {
+    @media (max-width: 992px) {
+      display: none;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .menu-item {
+      margin: 0px 30px;
+    }
+  }
+  .search {
+    position: relative;
+    .iconsearch {
+      position: absolute;
+      color: @whiteColor;
+      top: 50%-30px;
+      left: 30px;
+    }
+    .search-input {
+      @media (min-width: 992px) {
+        width: 200px;
+      }
+      margin: 0 20px;
+      outline: none;
+      background-color: transparent;
+      border: 0.5px solid @whiteColor4;
+      border-radius: 5px;
+      padding: 10px 0 10px 30px;
+      transition: 0.5s all;
+      font-weight: 100;
+      font-size: 0.8rem;
+      color: @whiteColor;
+      &:hover {
+        border-color: @whiteColor;
+      }
+    }
+  }
+  .iconlanguage {
+    @media (max-width: 992px) {
+      display: none;
+    }
+    &:hover {
+      color: @whiteColor;
+      cursor: pointer;
+    }
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-size: 30px;
+    color: @whiteColor6;
+    transition: 0.5s all;
+  }
+  .link {
+    position: relative;
+    color: @whiteColor6;
+    font-weight: 100;
+    transition: 0.5s all;
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: -5px;
+      left: 0px;
+      width: 0px;
+      height: 1px;
+      background-color: @whiteColor4;
+      transition: 0.5s all;
+    }
+    &:hover {
+      cursor: pointer;
+      color: @whiteColor;
+      &:after {
+        background-color: @whiteColor;
+        width: 100%;
+      }
+    }
+  }
+  .mobile-nav {
+    @media (min-width: 992px) {
+      display: none;
+      width: 60px;
+      height: 60px;
+    }
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    border: 0.5px solid @whiteColor4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+    margin: 0 20px 0 0;
+    .iconnav {
+      @media (max-width: 992px) {
+        font-size: 16px;
+      }
+      font-size: 24px;
+      color: @whiteColor4;
+    }
+    &:hover {
+      border-color: @whiteColor;
+      cursor: pointer;
+      .iconnav {
+        color: @whiteColor;
+      }
+    }
+  }
+}
+.mobile-nav-item {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background-color: @backgroundColor;
+  box-shadow: 0 5px 20px @blackColor;
+  transform-origin: 0 0;
+  .header-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .iconback {
+      color: @whiteColor;
+      font-size: 2.5rem;
+      display: block;
+      margin: 10px 0 0 10px;
+    }
+    .iconlanguage {
+      color: @whiteColor;
+      font-size: 2.5rem;
+      display: block;
+      margin: 10px 10px 0 0;
+    }
+  }
+  .header-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: 100;
+    color: @whiteColor;
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 80px;
+      overflow: hidden;
+      border: 1px solid @whiteColor;
+      .avatar-img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .name {
+      margin-top: 10px;
+    }
+    .mail {
+      color: @whiteColor6;
+      font-size: 0.8rem;
+      margin: 3px 0 10px 0;
+    }
+    .statistics {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 20px;
+      color: @whiteColor6;
+    }
+  }
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: @whiteColor;
+  }
+  .nav-menu {
+    color: @whiteColor6;
+    font-weight: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    .nav-menu-item {
+      padding: 15px 0px;
+      i {
+        font-style: normal;
+      }
+    }
+  }
+}
 </style>
