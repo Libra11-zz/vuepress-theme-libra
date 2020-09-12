@@ -1,0 +1,73 @@
+@import "@theme/common/color.less";
+.mobile-blog-item {
+  padding: 20px;
+  box-shadow: 0 2px 4px 0 @blackColor;
+  display: flex;
+  height: 120px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  background-color: @backgroundColor6;
+  margin-top: 10px;
+  .item-left {
+    width: 80px;
+    height: 80px;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .left-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .item-right {
+    padding-left: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    font-weight: 100;
+    .title {
+      display: inline-block;
+      width: 100%;
+      text-overflow: ellipsis;
+      line-height: 20px;
+      max-height: 100px;
+      color: @whiteColor;
+      font-size: 1.3rem;
+      overflow: hidden;
+    }
+    .content {
+      display: inline-block;
+      width: 100%;
+      flex: 1;
+      padding: 5px 0;
+      color: @whiteColor6;
+      font-size: 0.8rem;
+      text-overflow: ellipsis;
+      line-height: 20px;
+      max-height: 100px;
+      overflow: hidden;
+    }
+    .bottom {
+      font-size: 0.8rem;
+      color: @whiteColor6;
+      .iconfont {
+        font-size: 0.8rem;
+        vertical-align: middle;
+      }
+      .time {
+        margin-right: 10px;
+      }
+      .commits {
+        margin-right: 10px;
+      }
+    }
+  }
+}

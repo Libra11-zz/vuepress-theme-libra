@@ -1,0 +1,75 @@
+@import "@theme/common/color.less";
+.blog-item {
+  width: 200px;
+  height: 280px;
+  border-radius: 10px;
+  background-color: @backgroundColor8;
+  box-shadow: 0 2px 12px 0 @blackColor;
+  transition: 0.5s all;
+  padding-bottom: 10px;
+  margin: 40px 30px 40px 0;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 20px 0 @blackColor;
+    .img {
+      transform: scale(1.2);
+    }
+  }
+  overflow: hidden;
+  .img-container {
+    width: 200px;
+    height: 112.5px;
+    overflow: hidden;
+    .img {
+      width: 200px;
+      transition: 0.5s all;
+    }
+  }
+  .contents {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 167.5px;
+    padding: 20px 10px 20px 10px;
+    .title {
+      color: @whiteColor;
+      font-size: 1.3rem;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      overflow: hidden;
+      word-break: break-all;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-height: 20px;
+      max-height: 100px;
+    }
+    .content {
+      flex: 1;
+      padding: 5px 0;
+      overflow: hidden;
+      color: @whiteColor6;
+      font-size: 0.8rem;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-height: 20px;
+      max-height: 100px;
+    }
+    .bottom {
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      color: @whiteColor6;
+      .iconfont {
+        font-size: 0.8rem;
+      }
+      .time {
+        margin-right: 10px;
+      }
+      .commits {
+        margin-right: 10px;
+      }
+    }
+  }
+}

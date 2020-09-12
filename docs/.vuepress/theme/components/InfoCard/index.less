@@ -1,0 +1,70 @@
+@import "@theme/common/color.less";
+.my {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-top: 150px;
+  background-color: @backgroundColor6;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 12px 0 @blackColor;
+  .header-info {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-weight: 100;
+    color: @whiteColor;
+    font-size: 1rem;
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      overflow: hidden;
+      border: 1px solid @whiteColor;
+      .avatar-img {
+        width: 100px;
+        height: 100px;
+      }
+      &:hover {
+        cursor: pointer;
+        animation: rotate 1s linear infinite;
+      }
+    }
+    .name {
+      margin-top: 20px;
+    }
+    .mail {
+      color: @whiteColor6;
+      font-size: 0.8rem;
+      margin: 6px 0 30px 0;
+    }
+    .statistics {
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 20px;
+      color: @whiteColor6;
+    }
+    .more {
+      margin-top: 30px;
+      padding: 8px 20px;
+      display: inline-block;
+      border: 0.5px solid @whiteColor4;
+      color: @whiteColor;
+      font-weight: 100;
+      transition: 0.5s all;
+      border-radius: 20px;
+      width: 40%;
+      text-align: center;
+      &:hover {
+        cursor: pointer;
+        background-color: @whiteColor2;
+      }
+    }
+  }
+}

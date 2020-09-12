@@ -77,7 +77,7 @@
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/label/js">
+            <router-link to="/tag">
               <i class="iconfont iconlabel"></i>
               <i class="white">标签</i>
             </router-link>
