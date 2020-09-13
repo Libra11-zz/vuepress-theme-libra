@@ -3,6 +3,19 @@ module.exports = {
     [
       "@vuepress/blog",
       {
+        directories: [
+          {
+            id: "blogs",
+            dirname: "blogs",
+            path: "/",
+            layout: "Layout",
+            itemLayout: "Blog",
+            itemPermalink: "/:year/:month/:day/:slug",
+            pagination: {
+              lengthPerPage: 10,
+            },
+          },
+        ],
         frontmatters: [
           {
             // Unique ID of current classification
@@ -13,8 +26,16 @@ module.exports = {
             path: "/tag/",
             // Layout of the `entry page`
             layout: "Tags",
-            // Layout of the `scope page`
-            scopeLayout: "Tag",
+          },
+          {
+            // Unique ID of current classification
+            id: "blog",
+            // Decide that the frontmatter keys will be grouped under this classification
+            keys: ["blog"],
+            // Path of the `entry page` (or `list page`)
+            path: "/blog/",
+            // Layout of the `entry page`
+            layout: "Blog",
           },
         ],
       },

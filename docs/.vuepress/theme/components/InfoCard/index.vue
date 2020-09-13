@@ -29,6 +29,33 @@ export default {
       totalCount: 0,
       categoryCount: 0
     };
+  },
+  created() {
+    this.getAllBlogsNum();
+    this.getAllCategoryNum();
+  },
+  methods: {
+    getAllBlogsNum() {
+      let pages = this.$site.pages;
+      pages = pages.filter(item => {
+        const { date } = item.frontmatter;
+        return date !== undefined;
+      });
+      this.totalCount = pages.length;
+    },
+    getAllCategoryNum() {
+      let pages = this.$site.pages;
+      pages = pages.filter(item => {
+        const { date } = item.frontmatter;
+        return date !== undefined;
+      });
+      let res = [];
+      pages.forEach(item => {
+        let category = item.frontmatter.category;
+        res.push(category);
+      });
+      this.categoryCount = new Set(res).size;
+    }
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-item" @click="go(id)">
+  <div class="blog-item">
     <div class="img-container">
       <img :src="source" alt class="img" />
     </div>
@@ -22,14 +22,7 @@
 
 <script>
 export default {
-  props: ["source", "title", "content", "time", "category", "url", "id"],
-  methods: {
-    go(id) {
-      this.$router.push({
-        path: "/articleDetail/" + id
-      });
-    }
-  }
+  props: ["source", "title", "content", "time", "category"]
 };
 </script>
 

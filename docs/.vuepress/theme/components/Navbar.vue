@@ -11,7 +11,7 @@
         <router-link to="/blog" class="link">博客</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/label/js" class="link">标签</router-link>
+        <router-link to="/tag" class="link">标签</router-link>
       </li>
       <li class="menu-item">
         <router-link to="/category/JS" class="link">分类</router-link>

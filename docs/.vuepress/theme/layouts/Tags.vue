@@ -2,6 +2,24 @@
 <template>
   <div class="labels-container">
     <my-header></my-header>
+    <vue-particles
+      class="bg"
+      color="#fff"
+      :particleOpacity="0.7"
+      :particlesNumber="60"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#fff"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="6"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+    ></vue-particles>
     <div class="label-content">
       <div class="left">
         <div class="mobile-classify-label">
@@ -66,13 +84,15 @@ export default {
     return {
       Blogs: [],
       total: 0,
-      labels: []
+      labels: [],
     };
   },
   methods: {
     getBlogsByTag() {
+      console.log(this);
+      console.log(this.$page);
       console.log(this.$frontmatterKey.list);
-    }
+    },
   },
   created() {
     this.getBlogsByTag();
@@ -84,8 +104,8 @@ export default {
     InfoCard,
     BlogItem,
     MobileBlogItem,
-    MobileLabel
-  }
+    MobileLabel,
+  },
 };
 </script>
 
@@ -95,6 +115,14 @@ export default {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  position: relative;
+  .bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: left / cover fixed no-repeat url("../assets/background.jpg");
+    z-index: -1;
+  }
   .label-content {
     position: relative;
     flex: 1;

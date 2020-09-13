@@ -1,5 +1,5 @@
 <template>
-  <router-link class="container" :to="url">
+  <router-link class="container" to="/">
     <i :class="icon" class="iconfont"></i>
     {{text}}
   </router-link>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  props: ["icon", "text", "url"]
+  props: ["icon", "text"]
 };
 </script>
 
