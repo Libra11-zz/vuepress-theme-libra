@@ -25,8 +25,8 @@
         <div class="mobile-classify-label">
           <mobile-label />
         </div>
-        <div class="tag-blog-mobile">
-          <span class="tag-title">{{ currentTag }}</span>
+        <div class="recently-blog-mobile">
+          <span class="recently-title">{{ $currentTag.key }}</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -37,8 +37,8 @@
             :category="item.frontmatter.category"
           />
         </div>
-        <div class="tag-blog">
-          <span class="tag-title">{{currentTag}}</span>
+        <div class="recently-blog">
+          <span class="recently-title">{{$currentTag.key}}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -72,21 +72,25 @@ import MobileLabel from "@theme/components/MobileLabel";
 export default {
   data() {
     return {
-      currentTag: "All",
+      currentTag: "",
       Blogs: []
     };
   },
+  watch: {
+    // 路由变化 重新更新数据赋值
+    $route(to, from) {
+      if (to.fullPath !== from.fullPath) {
+        this.Blogs = this.getBlogsByTag();
+      }
+    }
+  },
   methods: {
-    getAllBlogs() {
-      let pages = this.$site.pages;
-      return pages.filter(item => {
-        const { date } = item.frontmatter;
-        return date !== undefined;
-      });
+    getBlogsByTag() {
+      return this.$pagination.pages;
     }
   },
   created() {
-    this.Blogs = this.getAllBlogs();
+    this.Blogs = this.getBlogsByTag();
   },
   components: {
     MyHeader,
@@ -143,7 +147,7 @@ export default {
         }
         padding: 0 10px;
       }
-      .tag-blog-mobile {
+      .recently-blog-mobile {
         @media (min-width: 992px) {
           display: none;
         }
@@ -152,7 +156,7 @@ export default {
         justify-content: center;
         align-items: center;
         padding: 0 10px;
-        .tag-title {
+        .recently-title {
           display: inline-block;
           font-size: 1.8rem;
           color: @whiteColor;
@@ -170,7 +174,7 @@ export default {
           }
         }
       }
-      .tag-blog {
+      .recently-blog {
         @media (max-width: 992px) {
           display: none;
         }
@@ -191,7 +195,7 @@ export default {
             margin-right: 20px;
           }
         }
-        .tag-title {
+        .recently-title {
           display: inline-block;
           font-size: 3rem;
           color: @whiteColor;

@@ -57,6 +57,7 @@
         <info-card />
       </div>
     </div>
+    <pagination :totalPages="total" :changePage="changePage"></pagination>
     <my-footer></my-footer>
   </div>
 </template>
@@ -69,28 +70,37 @@ import LabelCard from "@theme/components/LabelCard";
 import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
 import MobileLabel from "@theme/components/MobileLabel";
+import Pagination from "@theme/components/Pagination";
 export default {
   data() {
     return {
       currentTag: "",
-      Blogs: []
+      Blogs: [],
+      total: 0
     };
   },
   watch: {
     // 路由变化 重新更新数据赋值
     $route(to, from) {
       if (to.fullPath !== from.fullPath) {
-        this.Blogs = this.getBlogsByTag();
+        this.refresh();
       }
     }
   },
   methods: {
     getBlogsByTag() {
-      return this.$currentTag.pages;
+      return this.$pagination.pages;
+    },
+    changePage(n) {
+      this.$router.push(`/tag/${this.$currentTag.key}/page/${n}`);
+    },
+    refresh() {
+      this.total = this.$pagination._paginationPages.length;
+      this.Blogs = this.getBlogsByTag();
     }
   },
   created() {
-    this.Blogs = this.getBlogsByTag();
+    this.refresh();
   },
   components: {
     MyHeader,
@@ -99,7 +109,8 @@ export default {
     InfoCard,
     BlogItem,
     MobileBlogItem,
-    MobileLabel
+    MobileLabel,
+    Pagination
   }
 };
 </script>

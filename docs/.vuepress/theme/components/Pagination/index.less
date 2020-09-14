@@ -1,0 +1,42 @@
+@import "@theme/common/color.less";
+.iconfont {
+  color: @whiteColor;
+}
+.pageContainer {
+  position: relative;
+  // @media (max-width: 992px) {
+  //   display: none;
+  // }
+  margin-top: 20px;
+  .pagesInner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .page {
+      width: 35px;
+      height: 35px;
+      border-radius: 5px;
+      margin-left: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s all;
+      background-color: @blackColor6;
+      &:hover {
+        cursor: pointer;
+        background-color: @hoverBlueColor;
+        box-shadow: 0 2px 12px @blackColor;
+      }
+      span {
+        color: @whiteColor;
+        font-weight: 100;
+        font-style: italic;
+      }
+    }
+    .actived {
+      background-color: @hoverBlueColor;
+      color: #fff;
+    }
+  }
+}

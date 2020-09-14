@@ -111,7 +111,7 @@ export default {
   },
   methods: {
     getRecentBlogs() {
-      let pages = this.$site.pages;
+      let pages = this.$site.pages.slice(0, 9);
       return pages.filter(item => {
         const { date } = item.frontmatter;
         return date !== undefined;

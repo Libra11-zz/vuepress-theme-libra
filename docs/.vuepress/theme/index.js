@@ -12,7 +12,7 @@ module.exports = {
             itemLayout: "Blog",
             itemPermalink: "/:year/:month/:day/:slug",
             pagination: {
-              lengthPerPage: 10,
+              lengthPerPage: 8,
             },
           },
         ],
@@ -28,6 +28,9 @@ module.exports = {
             layout: "Tags",
             // layout of the `scope page`
             scopeLayout: "Tag",
+            pagination: {
+              lengthPerPage: 8,
+            },
           },
           {
             // Unique ID of current classification
@@ -38,6 +41,9 @@ module.exports = {
             path: "/blog/",
             // Layout of the `entry page`
             layout: "Blog",
+            pagination: {
+              lengthPerPage: 8,
+            },
           },
         ],
       },
