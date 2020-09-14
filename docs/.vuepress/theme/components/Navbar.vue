@@ -25,11 +25,7 @@
     </ul>
     <div class="search">
       <i class="iconfont iconsearch"></i>
-      <input
-        placeholder="请输入搜索的内容..."
-        class="search-input"
-        type="text"
-      />
+      <input placeholder="请输入搜索的内容..." class="search-input" type="text" />
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
       <i class="iconfont iconnav"></i>
@@ -112,17 +108,14 @@ export default {
     return {
       showNav: false,
       totalCount: 0,
-      categoryCount: 0,
+      categoryCount: 0
     };
   },
   methods: {
     handleMobileNav() {
       this.showNav = !this.showNav;
-    },
-  },
-  created() {
-    console.log("Libra");
-  },
+    }
+  }
 };
 </script>
 

@@ -23,15 +23,40 @@
     <div class="label-content">
       <div class="left">
         <div class="mobile-classify-label">
-          <mobile-label
-            v-for="(item, index) in labels"
-            :key="index"
-            :url="`/label/${item}`"
-            :title="item"
-          />
+          <mobile-label />
         </div>
+        <div class="picLink">
+          <img :src="Blogs[0].frontmatter.picture" alt class="picture" />
+        </div>
+        <div class="detail animated slow bounceInLeft">
+          <div class="title-label">
+            <span class="title">{{Blogs[0].frontmatter.title}}</span>
+            <span class="label">
+              <i class="iconfont iconlabel"></i>
+              {{Blogs[0].frontmatter.category}}
+            </span>
+          </div>
+          <div class="content">{{Blogs[0].frontmatter.desc}}</div>
+          <div class="bottom-content">
+            <div class="bottom-left">
+              <span class="time">
+                <i class="iconfont iconshizhong"></i>
+                {{Blogs[0].frontmatter.time}}
+              </span>
+              <span class="likes">
+                <i class="iconfont iconlabel"></i>
+                {{Blogs[0].frontmatter.category}}
+              </span>
+            </div>
+            <router-link class="bottom-right" :to="`/articleDetail/`">
+              阅读更多
+              <i class="iconfont icon-Right-Arrow"></i>
+            </router-link>
+          </div>
+        </div>
+
         <div class="recently-blog-mobile">
-          <span class="recently-title">{{ label }}</span>
+          <span class="recently-title">最近博客</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -42,35 +67,7 @@
             :category="item.frontmatter.category"
           />
         </div>
-        <router-link :to="`/articleDetail/`" class="picLink">
-          <img :src="Blogs[0].frontmatter.picture" alt class="picture" />
-        </router-link>
-        <div class="detail animated slow bounceInLeft">
-          <div class="title-label">
-            <span class="title">title</span>
-            <span class="label">
-              <i class="iconfont iconlabel"></i>
-              fenlei
-            </span>
-          </div>
-          <div class="content">desc</div>
-          <div class="bottom-content">
-            <div class="bottom-left">
-              <span class="time">
-                <i class="iconfont iconshizhong"></i>
-                shijian
-              </span>
-              <span class="likes">
-                <i class="iconfont iconlabel"></i>
-                fenlei
-              </span>
-            </div>
-            <router-link class="bottom-right" :to="`/articleDetail/`">
-              阅读更多
-              <i class="iconfont icon-Right-Arrow"></i>
-            </router-link>
-          </div>
-        </div>
+
         <div class="recently-blog">
           <span class="recently-title">最近博客</span>
           <div class="blog-container">
@@ -169,18 +166,19 @@ export default {
       flex: 1;
       position: relative;
       .picLink {
+        @media (max-width: 992px) {
+          padding: 0 10px;
+        }
         .picture {
+          width: 100%;
+          display: block;
+          position: relative;
+          border-radius: 0 0 20px 20px;
+          box-shadow: 0 2px 12px 0 @blackColor;
           @media (max-width: 992px) {
             border-radius: 5px;
             overflow: hidden;
           }
-          width: 100%;
-          display: block;
-          position: relative;
-          @media (min-width: 992px) {
-            border-radius: 0 0 20px 20px;
-          }
-          box-shadow: 0 2px 12px 0 @blackColor;
         }
       }
       .mobile-detail {
@@ -333,7 +331,7 @@ export default {
         @media (min-width: 992px) {
           display: none;
         }
-        padding: 0 10px;
+        padding: 10px 10px 30px 10px;
       }
       .recently-blog-mobile {
         @media (min-width: 992px) {

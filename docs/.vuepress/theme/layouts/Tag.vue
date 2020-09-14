@@ -72,22 +72,25 @@ import MobileLabel from "@theme/components/MobileLabel";
 export default {
   data() {
     return {
-      currentTag: "All",
+      currentTag: "",
       Blogs: []
     };
   },
+  watch: {
+    // 路由变化 重新更新数据赋值
+    $route(to, from) {
+      if (to.fullPath !== from.fullPath) {
+        this.Blogs = this.getBlogsByTag();
+      }
+    }
+  },
   methods: {
-    getAllBlogs() {
-      let pages = this.$site.pages;
-      return pages.filter(item => {
-        const { date } = item.frontmatter;
-        return date !== undefined;
-      });
+    getBlogsByTag() {
+      return this.$currentTag.pages;
     }
   },
   created() {
-    console.log(this.$frontmatterKey.list);
-    this.Blogs = this.getAllBlogs();
+    this.Blogs = this.getBlogsByTag();
   },
   components: {
     MyHeader,

@@ -26,6 +26,8 @@ module.exports = {
             path: "/tag/",
             // Layout of the `entry page`
             layout: "Tags",
+            // layout of the `scope page`
+            scopeLayout: "Tag",
           },
           {
             // Unique ID of current classification

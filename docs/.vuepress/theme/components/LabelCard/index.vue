@@ -25,7 +25,7 @@ export default {
         const { date } = item.frontmatter;
         return date !== undefined;
       });
-      let res = [];
+      let res = ["All"];
       pages.forEach(item => {
         let tag = item.frontmatter.tag;
         if (typeof tag === "string") {

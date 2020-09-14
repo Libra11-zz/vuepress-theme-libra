@@ -1,5 +1,5 @@
 <template>
-  <router-link class="container" to="/">
+  <router-link class="container" :to="goTo(text)">
     <i :class="icon" class="iconfont"></i>
     {{text}}
   </router-link>
@@ -7,7 +7,16 @@
 
 <script>
 export default {
-  props: ["icon", "text"]
+  props: ["icon", "text"],
+  methods: {
+    goTo(url) {
+      if (url === "All") {
+        return "/tag";
+      } else {
+        return `/tag/${url}`;
+      }
+    }
+  }
 };
 </script>
 
