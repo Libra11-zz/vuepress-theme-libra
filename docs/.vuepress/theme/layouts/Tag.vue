@@ -26,7 +26,7 @@
           <mobile-label />
         </div>
         <div class="recently-blog-mobile">
-          <span class="recently-title">{{ currentTag }}</span>
+          <span class="recently-title">{{ $currentTag.key }}</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -38,7 +38,7 @@
           />
         </div>
         <div class="recently-blog">
-          <span class="recently-title">{{currentTag}}</span>
+          <span class="recently-title">{{$currentTag.key}}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
