@@ -41,7 +41,7 @@
             <div class="bottom-left">
               <span class="time">
                 <i class="iconfont iconshizhong"></i>
-                {{ Blogs[0].frontmatter.time }}
+                {{ Blogs[0].frontmatter.date }}
               </span>
               <span class="likes">
                 <i class="iconfont iconlabel"></i>
@@ -102,6 +102,7 @@ import LabelCard from "@theme/components/LabelCard";
 import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
 import MobileLabel from "@theme/components/MobileLabel";
+import { sortBlog } from "../utils";
 export default {
   props: ["label"],
   data() {
@@ -121,7 +122,7 @@ export default {
     },
   },
   created() {
-    this.Blogs = this.getRecentBlogs();
+    this.Blogs = sortBlog(this.getRecentBlogs());
   },
   components: {
     MyHeader,

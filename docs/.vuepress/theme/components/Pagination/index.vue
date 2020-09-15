@@ -33,7 +33,6 @@ export default {
       if (n === this.Page) return;
       if (typeof n === "string") return;
       this.Page = n;
-      console.log(this.Page);
       this.changePage(n);
     },
     prevOrNext(n) {
@@ -45,9 +44,6 @@ export default {
         : null;
       this.changePage(this.Page);
     },
-  },
-  created() {
-    console.log(this.pages);
   },
   computed: {
     pages() {

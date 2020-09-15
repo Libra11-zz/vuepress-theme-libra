@@ -1,26 +1,24 @@
 <template>
   <div class="article">
     <my-header></my-header>
-    <div class="particleContainer">
-      <vue-particles
-        class="bg"
-        color="#fff"
-        :particleOpacity="0.7"
-        :particlesNumber="60"
-        shapeType="circle"
-        :particleSize="4"
-        linesColor="#fff"
-        :linesWidth="1"
-        :lineLinked="true"
-        :lineOpacity="0.4"
-        :linesDistance="150"
-        :moveSpeed="6"
-        :hoverEffect="true"
-        hoverMode="grab"
-        :clickEffect="true"
-        clickMode="push"
-      ></vue-particles>
-    </div>
+    <vue-particles
+      class="bg"
+      color="#fff"
+      :particleOpacity="0.7"
+      :particlesNumber="60"
+      shapeType="circle"
+      :particleSize="4"
+      linesColor="#fff"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.4"
+      :linesDistance="150"
+      :moveSpeed="6"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+    ></vue-particles>
     <div class="article-content">
       <div class="left">
         <span class="title animated rollIn">{{ title }}</span>
@@ -141,24 +139,19 @@ export default {
   }
 }
 .article {
-  position: relative;
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
-  background: left / cover fixed no-repeat url("../assets/background.jpg");
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  .particleContainer {
-    width: 100%;
-    min-height: 100vh;
+  position: relative;
+  .bg {
+    background: left / cover fixed no-repeat url("../assets/background.jpg");
+    width: 100vw;
+    height: 100vh;
     position: fixed;
-    .bg {
-      height: 100%;
-    }
+    position: absolute;
   }
   .article-content {
     display: flex;
-    flex: 1;
     width: 100%;
     align-items: flex-start;
     justify-content: center;

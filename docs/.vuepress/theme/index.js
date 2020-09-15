@@ -62,6 +62,26 @@ module.exports = {
               lengthPerPage: 8,
             },
           },
+          {
+            // Unique ID of current classification
+            id: "contact",
+            // Decide that the frontmatter keys will be grouped under this classification
+            keys: ["contact"],
+            // Path of the `entry page` (or `list page`)
+            path: "/contact/",
+            // Layout of the `entry page`
+            layout: "Contact",
+          },
+          {
+            // Unique ID of current classification
+            id: "timeline",
+            // Decide that the frontmatter keys will be grouped under this classification
+            keys: ["timeline"],
+            // Path of the `entry page` (or `list page`)
+            path: "/timeline/",
+            // Layout of the `entry page`
+            layout: "Timeline",
+          },
         ],
       },
     ],
