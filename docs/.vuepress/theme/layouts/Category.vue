@@ -58,11 +58,7 @@
         <info-card />
       </div>
     </div>
-    <pagination
-      :totalPages="total"
-      :changePage="changePage"
-      :currentPage="1"
-    ></pagination>
+    <pagination :totalPages="total" :changePage="changePage"></pagination>
     <my-footer></my-footer>
   </div>
 </template>

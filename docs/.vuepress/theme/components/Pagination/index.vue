@@ -8,7 +8,7 @@
         class="page"
         v-for="(item, index) in pages"
         :key="index"
-        :class="{ actived: item === currentPage }"
+        :class="{ actived: item === Page }"
         @click="select(item)"
       >
         <span>{{ item }}</span>
@@ -23,16 +23,12 @@
 <script>
 export default {
   props: ["totalPages", "changePage", "currentPage"],
-  computed: {
-    Page: function() {
-      return this.currentPage;
-    },
-  },
   methods: {
     select(n) {
       if (n === this.Page) return;
       if (typeof n === "string") return;
       this.Page = n;
+      console.log(n);
       this.changePage(n);
     },
     prevOrNext(n) {
@@ -45,7 +41,18 @@ export default {
       this.changePage(this.Page);
     },
   },
+  created() {
+    console.log(this.pages);
+  },
   computed: {
+    Page: {
+      get: function() {
+        return this.currentPage || 1;
+      },
+      set: function(v) {
+        this.currentPage = v;
+      },
+    },
     pages() {
       const c = this.Page;
       const t = this.totalPages;

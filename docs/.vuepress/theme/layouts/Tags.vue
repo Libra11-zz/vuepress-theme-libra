@@ -61,7 +61,6 @@
     <pagination
       :totalPages="Math.ceil(getAllBlogs().length / 8)"
       :changePage="changePage"
-      :currentPage="1"
     ></pagination>
     <my-footer></my-footer>
   </div>
