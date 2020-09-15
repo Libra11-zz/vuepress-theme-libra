@@ -25,8 +25,8 @@
         <div class="mobile-classify-label">
           <mobile-label />
         </div>
-        <div class="recently-blog-mobile">
-          <span class="recently-title">{{ $currentTag.key }}</span>
+        <div class="tags-blog-mobile">
+          <span class="tags-title">{{ $currentTag.key }}</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -37,8 +37,8 @@
             :category="item.frontmatter.category"
           />
         </div>
-        <div class="recently-blog">
-          <span class="recently-title">{{$currentTag.key}}</span>
+        <div class="tags-blog">
+          <span class="tags-title">{{ $currentTag.key }}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -46,6 +46,7 @@
               :source="item.frontmatter.picture"
               :title="item.frontmatter.title"
               :content="item.frontmatter.desc"
+              :path="item.path"
               :time="item.frontmatter.date"
               :category="item.frontmatter.category"
             />
@@ -57,7 +58,11 @@
         <info-card />
       </div>
     </div>
-    <pagination :totalPages="total" :changePage="changePage"></pagination>
+    <pagination
+      :totalPages="total"
+      :changePage="changePage"
+      :currentPage="1"
+    ></pagination>
     <my-footer></my-footer>
   </div>
 </template>
@@ -76,7 +81,7 @@ export default {
     return {
       currentTag: "",
       Blogs: [],
-      total: 0
+      total: 0,
     };
   },
   watch: {
@@ -85,7 +90,7 @@ export default {
       if (to.fullPath !== from.fullPath) {
         this.refresh();
       }
-    }
+    },
   },
   methods: {
     getBlogsByTag() {
@@ -97,7 +102,7 @@ export default {
     refresh() {
       this.total = this.$pagination._paginationPages.length;
       this.Blogs = this.getBlogsByTag();
-    }
+    },
   },
   created() {
     this.refresh();
@@ -110,8 +115,8 @@ export default {
     BlogItem,
     MobileBlogItem,
     MobileLabel,
-    Pagination
-  }
+    Pagination,
+  },
 };
 </script>
 
@@ -158,7 +163,7 @@ export default {
         }
         padding: 0 10px;
       }
-      .recently-blog-mobile {
+      .tags-blog-mobile {
         @media (min-width: 992px) {
           display: none;
         }
@@ -167,7 +172,7 @@ export default {
         justify-content: center;
         align-items: center;
         padding: 0 10px;
-        .recently-title {
+        .tags-title {
           display: inline-block;
           font-size: 1.8rem;
           color: @whiteColor;
@@ -185,7 +190,7 @@ export default {
           }
         }
       }
-      .recently-blog {
+      .tags-blog {
         @media (max-width: 992px) {
           display: none;
         }
@@ -206,7 +211,7 @@ export default {
             margin-right: 20px;
           }
         }
-        .recently-title {
+        .tags-title {
           display: inline-block;
           font-size: 3rem;
           color: @whiteColor;

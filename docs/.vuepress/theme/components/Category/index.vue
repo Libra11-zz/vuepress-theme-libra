@@ -10,9 +10,9 @@ export default {
   methods: {
     goTo(url) {
       if (url === "All") {
-        return "/tag";
+        return "/category";
       } else {
-        return `/tag/${url}`;
+        return `/category/${url}`;
       }
     },
   },

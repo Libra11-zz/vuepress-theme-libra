@@ -25,10 +25,8 @@
         <div class="mobile-classify-label">
           <mobile-label />
         </div>
-        <div class="page-blog-mobile">
-          <span class="page-title">{{
-            isCategory ? $currentCategory.key : $currentTag.key
-          }}</span>
+        <div class="tag-blog-mobile">
+          <span class="tag-title">{{ currentCategory }}</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -39,10 +37,8 @@
             :category="item.frontmatter.category"
           />
         </div>
-        <div class="page-blog">
-          <span class="page-title">{{
-            isCategory ? $currentCategory.key : $currentTag.key
-          }}</span>
+        <div class="tag-blog">
+          <span class="tag-title">{{ currentCategory }}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -50,23 +46,22 @@
               :source="item.frontmatter.picture"
               :title="item.frontmatter.title"
               :content="item.frontmatter.desc"
-              :path="item.path"
               :time="item.frontmatter.date"
+              :path="item.path"
               :category="item.frontmatter.category"
             />
           </div>
         </div>
       </div>
       <div class="right">
-        <label-card v-if="!isCategory" />
-        <category-card v-else />
+        <category-card />
         <info-card />
       </div>
     </div>
     <pagination
-      :totalPages="$pagination.length"
+      :totalPages="Math.ceil(getAllBlogs().length / 8)"
       :changePage="changePage"
-      :currentPage="$pagination.paginationIndex + 1"
+      :currentPage="1"
     ></pagination>
     <my-footer></my-footer>
   </div>
@@ -76,7 +71,6 @@
 import MyHeader from "@theme/components/Navbar";
 import MyFooter from "@theme/components/Footer";
 import BlogItem from "@theme/components/BlogItem";
-import LabelCard from "@theme/components/LabelCard";
 import CategoryCard from "@theme/components/CategoryCard";
 import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
@@ -85,41 +79,28 @@ import Pagination from "@theme/components/Pagination";
 export default {
   data() {
     return {
+      currentCategory: "All",
       Blogs: [],
-      isCategory: false,
     };
   },
-  watch: {
-    // 路由变化 重新更新数据赋值
-    $route(to, from) {
-      if (to.fullPath !== from.fullPath) {
-        this.Blogs = this.getBlogsByTag();
-      }
-    },
-  },
   methods: {
-    getBlogsByTag() {
-      console.log(this.$pagination);
-      return this.$pagination.pages;
+    getAllBlogs() {
+      let pages = this.$site.pages;
+      return pages.filter((item) => {
+        const { date } = item.frontmatter;
+        return date !== undefined;
+      });
     },
     changePage(n) {
-      if (n !== 1) {
-        this.$router.push(`/category/${this.$currentCategory.key}/page/${n}`);
-      } else {
-        this.$router.push(`/category/${this.$currentCategory.key}`);
-      }
+      this.Blogs = this.getAllBlogs().slice((n - 1) * 8, 8 * n);
     },
   },
   created() {
-    if (this.$route.path.startsWith("/category")) {
-      this.isCategory = true;
-    }
-    this.Blogs = this.getBlogsByTag();
+    this.Blogs = this.getAllBlogs().slice(0, 8);
   },
   components: {
     MyHeader,
     MyFooter,
-    LabelCard,
     CategoryCard,
     InfoCard,
     BlogItem,
@@ -173,7 +154,7 @@ export default {
         }
         padding: 0 10px;
       }
-      .page-blog-mobile {
+      .tag-blog-mobile {
         @media (min-width: 992px) {
           display: none;
         }
@@ -182,7 +163,7 @@ export default {
         justify-content: center;
         align-items: center;
         padding: 0 10px;
-        .page-title {
+        .tag-title {
           display: inline-block;
           font-size: 1.8rem;
           color: @whiteColor;
@@ -200,7 +181,7 @@ export default {
           }
         }
       }
-      .page-blog {
+      .tag-blog {
         @media (max-width: 992px) {
           display: none;
         }
@@ -221,7 +202,7 @@ export default {
             margin-right: 20px;
           }
         }
-        .page-title {
+        .tag-title {
           display: inline-block;
           font-size: 3rem;
           color: @whiteColor;

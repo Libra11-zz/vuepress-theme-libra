@@ -30,22 +30,22 @@
         </div>
         <div class="detail animated slow bounceInLeft">
           <div class="title-label">
-            <span class="title">{{Blogs[0].frontmatter.title}}</span>
+            <span class="title">{{ Blogs[0].frontmatter.title }}</span>
             <span class="label">
               <i class="iconfont iconlabel"></i>
-              {{Blogs[0].frontmatter.category}}
+              {{ Blogs[0].frontmatter.category }}
             </span>
           </div>
-          <div class="content">{{Blogs[0].frontmatter.desc}}</div>
+          <div class="content">{{ Blogs[0].frontmatter.desc }}</div>
           <div class="bottom-content">
             <div class="bottom-left">
               <span class="time">
                 <i class="iconfont iconshizhong"></i>
-                {{Blogs[0].frontmatter.time}}
+                {{ Blogs[0].frontmatter.time }}
               </span>
               <span class="likes">
                 <i class="iconfont iconlabel"></i>
-                {{Blogs[0].frontmatter.category}}
+                {{ Blogs[0].frontmatter.category }}
               </span>
             </div>
             <router-link class="bottom-right" :to="`/articleDetail/`">
@@ -77,6 +77,7 @@
               :source="item.frontmatter.picture"
               :title="item.frontmatter.title"
               :content="item.frontmatter.desc"
+              :path="item.path"
               :time="item.frontmatter.date"
               :category="item.frontmatter.category"
             />
@@ -88,6 +89,7 @@
         <info-card />
       </div>
     </div>
+    <Content />
     <my-footer></my-footer>
   </div>
 </template>
@@ -106,17 +108,17 @@ export default {
     return {
       Blogs: [],
       total: 0,
-      labels: []
+      labels: [],
     };
   },
   methods: {
     getRecentBlogs() {
       let pages = this.$site.pages.slice(0, 9);
-      return pages.filter(item => {
+      return pages.filter((item) => {
         const { date } = item.frontmatter;
         return date !== undefined;
       });
-    }
+    },
   },
   created() {
     this.Blogs = this.getRecentBlogs();
@@ -128,8 +130,8 @@ export default {
     InfoCard,
     BlogItem,
     MobileBlogItem,
-    MobileLabel
-  }
+    MobileLabel,
+  },
 };
 </script>
 

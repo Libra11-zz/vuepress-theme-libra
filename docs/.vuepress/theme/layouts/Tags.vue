@@ -38,7 +38,7 @@
           />
         </div>
         <div class="tag-blog">
-          <span class="tag-title">{{currentTag}}</span>
+          <span class="tag-title">{{ currentTag }}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -47,6 +47,7 @@
               :title="item.frontmatter.title"
               :content="item.frontmatter.desc"
               :time="item.frontmatter.date"
+              :path="item.path"
               :category="item.frontmatter.category"
             />
           </div>
@@ -57,6 +58,11 @@
         <info-card />
       </div>
     </div>
+    <pagination
+      :totalPages="Math.ceil(getAllBlogs().length / 8)"
+      :changePage="changePage"
+      :currentPage="1"
+    ></pagination>
     <my-footer></my-footer>
   </div>
 </template>
@@ -69,24 +75,28 @@ import LabelCard from "@theme/components/LabelCard";
 import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
 import MobileLabel from "@theme/components/MobileLabel";
+import Pagination from "@theme/components/Pagination";
 export default {
   data() {
     return {
       currentTag: "All",
-      Blogs: []
+      Blogs: [],
     };
   },
   methods: {
     getAllBlogs() {
       let pages = this.$site.pages;
-      return pages.filter(item => {
+      return pages.filter((item) => {
         const { date } = item.frontmatter;
         return date !== undefined;
       });
-    }
+    },
+    changePage(n) {
+      this.Blogs = this.getAllBlogs().slice((n - 1) * 8, 8 * n);
+    },
   },
   created() {
-    this.Blogs = this.getAllBlogs();
+    this.Blogs = this.getAllBlogs().slice(0, 8);
   },
   components: {
     MyHeader,
@@ -95,8 +105,9 @@ export default {
     InfoCard,
     BlogItem,
     MobileBlogItem,
-    MobileLabel
-  }
+    MobileLabel,
+    Pagination,
+  },
 };
 </script>
 

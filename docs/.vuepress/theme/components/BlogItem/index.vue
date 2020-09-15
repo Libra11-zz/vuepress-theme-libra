@@ -1,28 +1,28 @@
 <template>
-  <div class="blog-item">
+  <router-link :to="path" class="blog-item">
     <div class="img-container">
       <img :src="source" alt class="img" />
     </div>
     <div class="contents">
-      <div class="title">{{title}}</div>
-      <div class="content">{{content}}</div>
+      <div class="title">{{ title }}</div>
+      <div class="content">{{ content }}</div>
       <div class="bottom">
         <span class="time">
           <i class="iconfont iconshizhong"></i>
-          {{time}}
+          {{ time }}
         </span>
         <span class="category">
           <i class="iconfont iconlabel"></i>
-          {{category}}
+          {{ category }}
         </span>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
 export default {
-  props: ["source", "title", "content", "time", "category"]
+  props: ["source", "title", "content", "time", "category", "path"],
 };
 </script>
 

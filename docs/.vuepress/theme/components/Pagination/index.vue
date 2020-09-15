@@ -8,10 +8,10 @@
         class="page"
         v-for="(item, index) in pages"
         :key="index"
-        :class="{actived: item === currentPage}"
+        :class="{ actived: item === currentPage }"
         @click="select(item)"
       >
-        <span>{{item}}</span>
+        <span>{{ item }}</span>
       </li>
       <li class="page" @click="prevOrNext(1)">
         <span class="iconfont iconaui-icon-right" aria-hidden="true"></span>
@@ -22,32 +22,32 @@
 
 <script>
 export default {
-  props: ["totalPages", "changePage"],
-  data() {
-    return {
-      currentPage: 1
-    };
+  props: ["totalPages", "changePage", "currentPage"],
+  computed: {
+    Page: function() {
+      return this.currentPage;
+    },
   },
   methods: {
     select(n) {
-      if (n === this.currentPage) return;
+      if (n === this.Page) return;
       if (typeof n === "string") return;
-      this.currentPage = n;
+      this.Page = n;
       this.changePage(n);
     },
     prevOrNext(n) {
-      this.currentPage += n;
-      this.currentPage < 1
-        ? (this.currentPage = 1)
-        : this.currentPage > this.totalPages
-        ? (this.currentPage = this.totalPages)
+      this.Page += n;
+      this.Page < 1
+        ? (this.Page = 1)
+        : this.Page > this.totalPages
+        ? (this.Page = this.totalPages)
         : null;
-      this.changePage(this.currentPage);
-    }
+      this.changePage(this.Page);
+    },
   },
   computed: {
     pages() {
-      const c = this.currentPage;
+      const c = this.Page;
       const t = this.totalPages;
       if (t <= 10) {
         return Array.from({ length: t }, (v, k) => k + 1);
@@ -66,7 +66,7 @@ export default {
           t - 3,
           t - 2,
           t - 1,
-          t
+          t,
         ];
       } else {
         return [
@@ -80,11 +80,11 @@ export default {
           c + 2,
           c + 3,
           "...",
-          t
+          t,
         ];
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -14,7 +14,7 @@
         <router-link to="/tag" class="link">标签</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/category/JS" class="link">分类</router-link>
+        <router-link to="/category" class="link">分类</router-link>
       </li>
       <li class="menu-item">
         <router-link to="/timeline" class="link">时间线</router-link>
@@ -25,7 +25,11 @@
     </ul>
     <div class="search">
       <i class="iconfont iconsearch"></i>
-      <input placeholder="请输入搜索的内容..." class="search-input" type="text" />
+      <input
+        placeholder="请输入搜索的内容..."
+        class="search-input"
+        type="text"
+      />
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
       <i class="iconfont iconnav"></i>
@@ -79,7 +83,7 @@
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/category/JS">
+            <router-link to="/category">
               <i class="iconfont iconfenlei-"></i>
               <i class="white">分类</i>
             </router-link>
@@ -108,14 +112,39 @@ export default {
     return {
       showNav: false,
       totalCount: 0,
-      categoryCount: 0
+      categoryCount: 0,
     };
+  },
+  created() {
+    this.getAllBlogsNum();
+    this.getAllCategoryNum();
   },
   methods: {
     handleMobileNav() {
       this.showNav = !this.showNav;
-    }
-  }
+    },
+    getAllBlogsNum() {
+      let pages = this.$site.pages;
+      pages = pages.filter((item) => {
+        const { date } = item.frontmatter;
+        return date !== undefined;
+      });
+      this.totalCount = pages.length;
+    },
+    getAllCategoryNum() {
+      let pages = this.$site.pages;
+      pages = pages.filter((item) => {
+        const { date } = item.frontmatter;
+        return date !== undefined;
+      });
+      let res = [];
+      pages.forEach((item) => {
+        let category = item.frontmatter.category;
+        res.push(category);
+      });
+      this.categoryCount = new Set(res).size;
+    },
+  },
 };
 </script>
 
