@@ -93,7 +93,9 @@ export default {
       return this.$pagination.pages;
     },
     changePage(n) {
-      this.$router.push(`/tag/${this.$currentTag.key}/page/${n}`);
+      this.$router
+        .push(`/tag/${this.$currentTag.key}/page/${n}`)
+        .catch(() => {});
     },
     refresh() {
       this.total = this.$pagination._paginationPages.length;

@@ -26,9 +26,9 @@
           <mobile-label />
         </div>
         <div class="page-blog-mobile">
-          <span class="page-title">{{
-            isCategory ? $currentCategory.key : $currentTag.key
-          }}</span>
+          <span class="page-title">
+            {{ isCategory ? $currentCategory.key : $currentTag.key }}
+          </span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -40,9 +40,9 @@
           />
         </div>
         <div class="page-blog">
-          <span class="page-title">{{
-            isCategory ? $currentCategory.key : $currentTag.key
-          }}</span>
+          <span class="page-title">
+            {{ isCategory ? $currentCategory.key : $currentTag.key }}
+          </span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -99,14 +99,30 @@ export default {
   },
   methods: {
     getBlogsByTag() {
-      console.log(this.$pagination);
       return this.$pagination.pages;
     },
     changePage(n) {
+      // 报错没找到原因  目前被我catch掉了  找到原因的小伙伴可以私信一下我
       if (n !== 1) {
-        this.$router.push(`/category/${this.$currentCategory.key}/page/${n}`);
+        if (this.isCategory) {
+          this.$router
+            .push(`/category/${this.$currentCategory.key}/page/${n}`)
+            .catch(() => {});
+        } else {
+          this.$router
+            .push(`/tag/${this.$currentCategory.key}/page/${n}`)
+            .catch(() => {});
+        }
       } else {
-        this.$router.push(`/category/${this.$currentCategory.key}`);
+        if (this.isCategory) {
+          this.$router
+            .push(`/category/${this.$currentCategory.key}`)
+            .catch(() => {});
+        } else {
+          this.$router
+            .push(`/tag/${this.$currentCategory.key}`)
+            .catch(() => {});
+        }
       }
     },
   },

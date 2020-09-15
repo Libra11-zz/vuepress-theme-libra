@@ -15,6 +15,7 @@
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "vue": "2.6.11",
-    "vue-particles": "^1.0.9"
+    "vue-particles": "^1.0.9",
+    "vue-router": "3.0.7"
   }
 }

@@ -23,12 +23,17 @@
 <script>
 export default {
   props: ["totalPages", "changePage", "currentPage"],
+  data() {
+    return {
+      Page: this.currentPage || 1,
+    };
+  },
   methods: {
     select(n) {
       if (n === this.Page) return;
       if (typeof n === "string") return;
       this.Page = n;
-      console.log(n);
+      console.log(this.Page);
       this.changePage(n);
     },
     prevOrNext(n) {
@@ -45,14 +50,6 @@ export default {
     console.log(this.pages);
   },
   computed: {
-    Page: {
-      get: function() {
-        return this.currentPage || 1;
-      },
-      set: function(v) {
-        this.currentPage = v;
-      },
-    },
     pages() {
       const c = this.Page;
       const t = this.totalPages;
