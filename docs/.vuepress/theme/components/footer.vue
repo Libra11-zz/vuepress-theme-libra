@@ -16,7 +16,9 @@
         </div>
       </div>
     </div>
-    <div class="right">Copyright © 2019-2020 Libra | 版权所有</div>
+    <div class="right">
+      {{ $themeConfig.footer.copyright }}
+    </div>
   </div>
 </template>
 

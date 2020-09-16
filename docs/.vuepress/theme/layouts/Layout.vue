@@ -20,12 +20,12 @@
       clickMode="push"
     ></vue-particles>
     <div class="content">
-      <span class="content-text header-text animated slow bounceInLeft"
-        >Libra</span
-      >
-      <span class="content-text sub-text animated slow lightSpeedIn"
-        >在生活里，我们永远是初学者</span
-      >
+      <span class="content-text header-text animated slow bounceInLeft">{{
+        $themeConfig.home.title
+      }}</span>
+      <span class="content-text sub-text animated slow lightSpeedIn">{{
+        $themeConfig.home.subTitle
+      }}</span>
       <router-link to="/contact" class="contact">
         <i class="iconfont iconcontact"></i>
         联系我

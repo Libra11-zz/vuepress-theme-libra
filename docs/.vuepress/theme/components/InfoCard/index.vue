@@ -2,18 +2,18 @@
   <div class="my">
     <div class="header-info">
       <div class="avatar">
-        <img src="https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg" alt class="avatar-img" />
+        <img :src="$themeConfig.infoCard.headerPic" alt class="avatar-img" />
       </div>
-      <span class="name">Libra</span>
-      <i class="mail">libra085925@gmail.com</i>
+      <span class="name">{{ $themeConfig.infoCard.name }}</span>
+      <i class="mail">{{ $themeConfig.infoCard.mail }}</i>
       <div class="statistics">
         <span class="articles">
-          {{totalCount}}
+          {{ totalCount }}
           <i class="white">&nbsp;文章</i>
         </span>
         <span class="verticle-line white">|</span>
         <span class="link">
-          {{categoryCount}}
+          {{ categoryCount }}
           <i class="white">&nbsp;分类</i>
         </span>
       </div>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       totalCount: 0,
-      categoryCount: 0
+      categoryCount: 0,
     };
   },
   created() {
@@ -37,7 +37,7 @@ export default {
   methods: {
     getAllBlogsNum() {
       let pages = this.$site.pages;
-      pages = pages.filter(item => {
+      pages = pages.filter((item) => {
         const { date } = item.frontmatter;
         return date !== undefined;
       });
@@ -45,18 +45,18 @@ export default {
     },
     getAllCategoryNum() {
       let pages = this.$site.pages;
-      pages = pages.filter(item => {
+      pages = pages.filter((item) => {
         const { date } = item.frontmatter;
         return date !== undefined;
       });
       let res = [];
-      pages.forEach(item => {
+      pages.forEach((item) => {
         let category = item.frontmatter.category;
         res.push(category);
       });
       this.categoryCount = new Set(res).size;
-    }
-  }
+    },
+  },
 };
 </script>
 

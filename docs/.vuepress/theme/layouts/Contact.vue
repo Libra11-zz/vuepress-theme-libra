@@ -23,17 +23,14 @@
       <div class="contact-content">
         <div class="content-header-container">
           <div class="contact-header">
-            <img
-              class="header-img"
-              src="https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/myself.jpeg"
-              alt
-            />
+            <img class="header-img" :src="$themeConfig.contact.headerPic" alt />
           </div>
         </div>
-        <div class="hello">Hello There!</div>
+        <div class="hello">{{ $themeConfig.contact.title }}</div>
         <div class="detail">
-          Thank you for visiting my blog
-          <br />Hope we can make progress together
+          {{ $themeConfig.contact.subTitle1 }}
+          <br />
+          {{ $themeConfig.contact.subTitle2 }}
         </div>
       </div>
       <div class="contact-bottom">
@@ -46,17 +43,14 @@
         <a class="icon-container weixin">
           <i class="iconfont iconweixin"></i>
           <div class="qrcode">
-            <img
-              src="https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png"
-              alt
-            />
+            <img :src="$themeConfig.contact.wechat" alt />
           </div>
         </a>
         <a class="icon-container email">
           <i class="iconfont iconemailFilled"></i>
-          <div class="email-content">libra085925@gmail.com</div>
+          <div class="email-content">{{ $themeConfig.contact.mail }}</div>
         </a>
-        <a href="https://github.com/Libra11" class="icon-container">
+        <a :href="$themeConfig.contact.github" class="icon-container">
           <i class="iconfont icongithub"></i>
         </a>
       </div>
@@ -133,6 +127,7 @@ export default {
       margin-top: 20px;
     }
     .detail {
+      text-align: center;
       margin-top: 20px;
       font-style: italic;
     }
