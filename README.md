@@ -58,7 +58,8 @@ date: "2019-10-14"
 # 确保脚本抛出遇到的错误
 set -e
 
-# 生成静态文件
+# 生成静态文件(有yarn使用yarn，没有也可以使用npm)
+# npm run build
 yarn build
 
 # 进入生成的文件夹
