@@ -8,8 +8,9 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
+    "@vuepress/plugin-active-header-links": "^1.5.4",
+    "@vuepress/plugin-back-to-top": "^1.5.4",
     "@vuepress/plugin-blog": "^1.9.2",
-    "@vuepress/plugin-search": "^1.5.4",
     "vuepress": "^1.5.4"
   },
   "dependencies": {
