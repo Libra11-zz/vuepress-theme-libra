@@ -24,7 +24,7 @@ npm run dev # or yarn dev
 
 # 写作
 
-在`docs/blogs`里面添加博客文章（目前里面有一些测试文章），文章为`markdown`格式,文章以一下内容开头
+在`docs/blogs`里面添加博客文章（目前里面有一些测试文章），文章为`markdown`格式,文章以以下内容开头
 
 ```
 ---
@@ -45,5 +45,42 @@ date: "2019-10-14"
 - `tag`: 文章标签
 - `picture`: 文章缩略图`thumbnail`
 - `date`: 发表日期
+
+# 部署（仅为 github Page 上的部署）
+
+1. 修改 `config.js`里的`base`的值，如果发布到 `https://<USERNAME>.github.io`，可以不设置`base`的值，以为其默认值为`/`,# 如果发布到 `https://<USERNAME>.github.io/<REPO>`,则需要将`base`得值设为`/REPO/`
+2. 在`github`上建一个新的`repo`，名称为下面`deplohy.sh`里配置的`repo`名称
+3. 项目根目录下有一个`deploy.sh`文件，复制以下配置，根据实际情况选择对应选项
+
+```
+#!/usr/bin/env sh
+
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
+yarn build
+
+# 进入生成的文件夹
+cd docs/.vuepress/dist
+
+# 如果是发布到自定义域名
+# echo 'www.example.com' > CNAME
+
+git init
+git add -A
+git commit -m 'deploy'
+
+# 如果发布到 https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
+
+# 如果发布到 https://<USERNAME>.github.io/<REPO>
+git push -f git@github.com:Libra11/vuepress-theme-libra.git master:gh-pages
+
+cd -
+```
+
+配置完成之后直接运行`deploy.sh`,会将打包好的代码上传到你的`repo`仓库的`gh-pages`分支 4.进入`github`的`repo`仓库，点击`Settings`,下拉找到`GitHub Pages`选项，`Branch`选择`gh-pages`，目录选择根目录`/root`,然后点击`save`，`github`将自动为你生成链接，访问链接即可访问到你的博客。
+![image](https://libra321.oss-cn-huhehaote.aliyuncs.com/github/84CBEB9D-AF4D-4E20-ACC2-12DD6CB5332F.png)
 
 **项目目前为测试阶段，谨慎使用  😎**
