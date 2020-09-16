@@ -1117,7 +1117,7 @@
   dependencies:
     "@vuepress/shared-utils" "1.5.4"
 
-"@vuepress/plugin-search@1.5.4":
+"@vuepress/plugin-search@1.5.4", "@vuepress/plugin-search@^1.5.4":
   version "1.5.4"
   resolved "https://registry.npm.taobao.org/@vuepress/plugin-search/download/@vuepress/plugin-search-1.5.4.tgz#3360445e9ecf8bdcb5497ab1c0f46d8aecc9ab6c"
   integrity sha1-M2BEXp7Pi9y1SXqxwPRtiuzJq2w=

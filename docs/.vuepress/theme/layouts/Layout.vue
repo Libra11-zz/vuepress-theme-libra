@@ -50,23 +50,32 @@ export default {
 <style lang="less" scoped>
 @import "@theme/common/color.less";
 .app {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background: left / cover fixed no-repeat url("../assets/background.jpg");
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
   .bg {
-    position: absolute;
     width: 100vw;
     height: 100vh;
+    position: fixed;
+    background: left / cover fixed no-repeat url("../assets/background.jpg");
+    z-index: -1;
   }
   .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     font-weight: 100;
     margin-left: 10%;
     .contact {
       position: relative;
       margin-top: 40px;
       padding: 8px 20px;
-      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
       border: 0.5px solid @whiteColor4;
       color: @whiteColor;
       font-weight: 100;
