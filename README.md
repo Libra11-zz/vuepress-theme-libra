@@ -18,6 +18,10 @@ npm install # or yarn install
 npm run dev # or yarn dev
 ```
 
+# 配置
+
+在`docs/.vuepress/config.js`里进行博客一些图片和文字的配置，具体信息请看`config.js`中详细内容
+
 # 写作
 
 在`docs/blogs`里面添加博客文章（目前里面有一些测试文章），文章为`markdown`格式,文章以一下内容开头
