@@ -1,5 +1,6 @@
 module.exports = {
   title: "Libra",
+  base: "vuepress-theme-libra",
   description: "a vuepress theme by libra",
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
