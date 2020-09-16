@@ -23,7 +23,7 @@
     <div class="label-content">
       <div class="left">
         <div class="mobile-classify-label">
-          <mobile-label />
+          <mobile-category />
         </div>
         <div class="tags-blog-mobile">
           <span class="tags-title">{{ $currentCategory.key }}</span>
@@ -71,6 +71,7 @@ import CategoryCard from "@theme/components/CategoryCard";
 import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
 import MobileLabel from "@theme/components/MobileLabel";
+import MobileCategory from "@theme/components/MobileCategory";
 import Pagination from "@theme/components/Pagination";
 export default {
   data() {
@@ -114,6 +115,7 @@ export default {
     MobileBlogItem,
     MobileLabel,
     Pagination,
+    MobileCategory,
   },
 };
 </script>

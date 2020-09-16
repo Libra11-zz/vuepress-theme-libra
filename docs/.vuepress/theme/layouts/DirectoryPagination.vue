@@ -110,7 +110,7 @@ export default {
             .catch(() => {});
         } else {
           this.$router
-            .push(`/tag/${this.$currentCategory.key}/page/${n}`)
+            .push(`/tag/${this.$currentTag.key}/page/${n}`)
             .catch(() => {});
         }
       } else {
@@ -119,14 +119,13 @@ export default {
             .push(`/category/${this.$currentCategory.key}`)
             .catch(() => {});
         } else {
-          this.$router
-            .push(`/tag/${this.$currentCategory.key}`)
-            .catch(() => {});
+          this.$router.push(`/tag/${this.$currentTag.key}`).catch(() => {});
         }
       }
     },
   },
   created() {
+    console.log(this);
     if (this.$route.path.startsWith("/category")) {
       this.isCategory = true;
     }
