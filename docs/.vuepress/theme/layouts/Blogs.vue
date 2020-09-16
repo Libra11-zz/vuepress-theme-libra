@@ -21,23 +21,23 @@
     ></vue-particles>
     <div class="article-content">
       <div class="left">
-        <span class="title animated rollIn">{{ title }}</span>
+        <span class="title animated rollIn">{{ blog.title }}</span>
         <ul class="label animated zoomInUp">
           <li class="date">
             <i class="iconfont iconshizhong"></i>
-            123
+            {{ blog.date }}
           </li>
           <li class="update">
             <i class="iconfont iconUpdate"></i>
-            123
+            {{ blog.date }}
           </li>
           <li class="labels">
             <i class="iconfont iconlabel"></i>
-            {{ category }}
+            {{ blog.category }}
           </li>
         </ul>
         <div class="image">
-          <img :src="headerPic" alt width="100%" />
+          <img :src="blog.picture" alt width="100%" />
         </div>
         <div class="detail">
           <div><Content /></div>
@@ -67,24 +67,18 @@ import CategoryCard from "@theme/components/CategoryCard";
 import InfoCard from "@theme/components/InfoCard";
 import MyHeader from "@theme/components/Navbar";
 import MyFooter from "@theme/components/Footer";
+import "prismjs/themes/prism-tomorrow.css";
+
 export default {
   layout: "other",
   data() {
     return {
       hs: [],
-      id: this.$route.params.id,
-      title: "",
-      pubTime: "",
-      upTime: "",
-      category: "",
-      content: "",
-      headerPic: "",
-      views: 0,
-      commentsLength: 0,
+      blog: {},
     };
   },
   mounted() {
-    // this.fixedTop();
+    this.fixedTop();
     setTimeout(() => {
       this.listAndAnchor();
     }, 1000);
@@ -100,14 +94,17 @@ export default {
       }
     },
     // apply catalog fixed top
-    // fixedTop() {
-    //   var obj = document.querySelector(".list");
-    //   var ot = obj.offsetTop;
-    //   document.onscroll = function() {
-    //     var st = document.body.scrollTop || document.documentElement.scrollTop;
-    //     obj.setAttribute("data-fixed", st >= ot + 20 ? "fixed" : "");
-    //   };
-    // },
+    fixedTop() {
+      var obj = document.querySelector(".list");
+      var ot = obj.offsetTop;
+      document.onscroll = function() {
+        var st = document.body.scrollTop || document.documentElement.scrollTop;
+        obj.setAttribute("data-fixed", st >= ot + 20 ? "fixed" : "");
+      };
+    },
+  },
+  created() {
+    this.blog = this.$frontmatter;
   },
   components: {
     InfoCard,
@@ -148,7 +145,7 @@ export default {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    position: absolute;
+    z-index: -1;
   }
   .article-content {
     display: flex;
