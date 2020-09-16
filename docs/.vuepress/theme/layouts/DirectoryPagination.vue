@@ -27,7 +27,7 @@
         </div>
         <div class="page-blog-mobile">
           <span class="page-title">
-            {{ isCategory ? $currentCategory.key : $currentTag.key }}
+            {{ isCategory ? current : current }}
           </span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
@@ -41,7 +41,7 @@
         </div>
         <div class="page-blog">
           <span class="page-title">
-            {{ isCategory ? $currentCategory.key : $currentTag.key }}
+            {{ isCategory ? current : current }}
           </span>
           <div class="blog-container">
             <blog-item
@@ -87,6 +87,7 @@ export default {
     return {
       Blogs: [],
       isCategory: false,
+      current: "",
     };
   },
   watch: {
@@ -101,31 +102,34 @@ export default {
     getBlogsByTag() {
       return this.$pagination.pages;
     },
+    getCurrentCategoryOrTag() {
+      if (this.isCategory) {
+        console.log(this.$currentCategory);
+        return this.$currentCategory.path.split("/")[2];
+      } else {
+        return this.$currentTag.path.split("/")[2];
+      }
+    },
     changePage(n) {
       // 报错没找到原因  目前被我catch掉了  找到原因的小伙伴可以私信一下我
       if (n !== 1) {
         if (this.isCategory) {
           this.$router
-            .push(`/category/${this.$currentCategory.key}/page/${n}`)
+            .push(`/category/${this.current}/page/${n}`)
             .catch(() => {});
         } else {
-          this.$router
-            .push(`/tag/${this.$currentTag.key}/page/${n}`)
-            .catch(() => {});
+          this.$router.push(`/tag/${this.current}/page/${n}`).catch(() => {});
         }
       } else {
         if (this.isCategory) {
-          this.$router
-            .push(`/category/${this.$currentCategory.key}`)
-            .catch(() => {});
+          this.$router.push(`/category/${this.current}`).catch(() => {});
         } else {
-          this.$router.push(`/tag/${this.$currentTag.key}`).catch(() => {});
+          this.$router.push(`/tag/${this.current}`).catch(() => {});
         }
       }
     },
   },
   created() {
-    console.log(this);
     if (this.$route.path.startsWith("/category")) {
       this.isCategory = true;
     }
