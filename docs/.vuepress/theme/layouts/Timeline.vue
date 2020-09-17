@@ -125,6 +125,7 @@ export default {
   }
   .content {
     display: flex;
+    width: 100%;
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;

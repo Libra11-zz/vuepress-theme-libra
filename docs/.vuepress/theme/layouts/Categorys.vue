@@ -34,6 +34,7 @@
             :title="item.frontmatter.title"
             :content="item.frontmatter.desc"
             :time="item.frontmatter.date"
+            :path="item.path"
             :category="item.frontmatter.category"
           />
         </div>
@@ -58,7 +59,10 @@
         <info-card />
       </div>
     </div>
-    <pagination :totalPages="Math.ceil(getAllBlogs().length / 8)" :changePage="changePage"></pagination>
+    <pagination
+      :totalPages="Math.ceil(getAllBlogs().length / 8)"
+      :changePage="changePage"
+    ></pagination>
     <my-footer></my-footer>
   </div>
 </template>

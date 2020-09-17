@@ -33,6 +33,7 @@
             :source="item.frontmatter.picture"
             :title="item.frontmatter.title"
             :content="item.frontmatter.desc"
+            :path="item.path"
             :time="item.frontmatter.date"
             :category="item.frontmatter.category"
           />

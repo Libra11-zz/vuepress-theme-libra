@@ -34,6 +34,7 @@
             :title="item.frontmatter.title"
             :content="item.frontmatter.desc"
             :time="item.frontmatter.date"
+            :path="item.path"
             :category="item.frontmatter.category"
           />
         </div>
