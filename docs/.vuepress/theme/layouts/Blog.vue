@@ -122,7 +122,7 @@ export default {
     },
   },
   created() {
-    this.Blogs = sortBlog(this.getRecentBlogs()).slice(0, 9);
+    this.Blogs = sortBlog(this.getRecentBlogs()).slice(0, 8);
   },
   components: {
     MyHeader,
