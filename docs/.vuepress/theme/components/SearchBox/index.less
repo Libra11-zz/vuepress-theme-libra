@@ -1,0 +1,43 @@
+@import "@theme/common/color.less";
+.search-box {
+  position: relative;
+  input {
+    @media (min-width: 992px) {
+      width: 200px;
+    }
+    margin: 0 20px;
+    outline: none;
+    background-color: transparent;
+    border: 0.5px solid @whiteColor4;
+    border-radius: 5px;
+    padding: 10px 0 10px 30px;
+    transition: 0.5s all;
+    font-weight: 100;
+    font-size: 0.8rem;
+    color: @whiteColor;
+    &:hover {
+      border-color: @whiteColor;
+    }
+  }
+  .suggestions {
+    @media (min-width: 992px) {
+      width: 200px;
+    }
+    position: absolute;
+    margin: 0 20px;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: @backgroundColor6;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 12px 0 @blackColor;
+    .suggestion {
+      padding: 10px;
+      transition: all 0.5s;
+      &:hover {
+        transition: all 0.5s;
+        background-color: #000;
+      }
+    }
+  }
+}

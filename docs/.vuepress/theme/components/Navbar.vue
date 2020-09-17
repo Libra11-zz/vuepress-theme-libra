@@ -25,11 +25,12 @@
     </ul>
     <div class="search">
       <i class="iconfont iconsearch"></i>
-      <input
+      <!-- <input
         placeholder="请输入搜索的内容..."
         class="search-input"
         type="text"
-      />
+      />-->
+      <search-box></search-box>
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
       <i class="iconfont iconnav"></i>
@@ -107,6 +108,7 @@
 </template>
 
 <script>
+import SearchBox from "@theme/components/SearchBox";
 export default {
   data() {
     return {
@@ -118,6 +120,9 @@ export default {
   created() {
     this.getAllBlogsNum();
     this.getAllCategoryNum();
+  },
+  components: {
+    SearchBox,
   },
   methods: {
     handleMobileNav() {
@@ -206,24 +211,6 @@ export default {
       color: @whiteColor;
       top: 50%-30px;
       left: 30px;
-    }
-    .search-input {
-      @media (min-width: 992px) {
-        width: 200px;
-      }
-      margin: 0 20px;
-      outline: none;
-      background-color: transparent;
-      border: 0.5px solid @whiteColor4;
-      border-radius: 5px;
-      padding: 10px 0 10px 30px;
-      transition: 0.5s all;
-      font-weight: 100;
-      font-size: 0.8rem;
-      color: @whiteColor;
-      &:hover {
-        border-color: @whiteColor;
-      }
     }
   }
   .iconlanguage {

@@ -85,6 +85,14 @@ export default {
       this.listAndAnchor();
     }, 1000);
   },
+  watch: {
+    // 路由变化 重新更新数据赋值
+    $route(to, from) {
+      if (to.fullPath !== from.fullPath) {
+        this.refresh();
+      }
+    },
+  },
   methods: {
     // generator markdown catalog
     listAndAnchor() {
@@ -103,6 +111,9 @@ export default {
         var st = document.body.scrollTop || document.documentElement.scrollTop;
         obj.setAttribute("data-fixed", st >= ot + 20 ? "fixed" : "");
       };
+    },
+    refresh() {
+      this.blog = this.$frontmatter;
     },
   },
   created() {
