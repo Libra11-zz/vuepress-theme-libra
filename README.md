@@ -86,4 +86,10 @@ cd -
 配置完成之后直接运行`deploy.sh`,会将打包好的代码上传到你的`repo`仓库的`gh-pages`分支 4.进入`github`的`repo`仓库，点击`Settings`,下拉找到`GitHub Pages`选项，`Branch`选择`gh-pages`，目录选择根目录`/root`,然后点击`save`，`github`将自动为你生成链接，访问链接即可访问到你的博客。
 ![image](https://libra321.oss-cn-huhehaote.aliyuncs.com/github/84CBEB9D-AF4D-4E20-ACC2-12DD6CB5332F.png)
 
+# 支持
+
+> 给作者买一杯咖啡
+
+![image](https://libra321.oss-cn-huhehaote.aliyuncs.com/github/Group%202.png)
+
 **项目目前为测试阶段，谨慎使用  😎**
