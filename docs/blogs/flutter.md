@@ -4,6 +4,7 @@ category: flutter
 desc: wo bu zhi dao ni shi shei ke wo zhi dao ni wei le shei
 title: 【译】`Flutter`整洁架构构建与测试驱动开发（三）
 date: "2020-10-16"
+Update: "2019-10-18"
 picture: https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/flutter_clean_4.png
 ---
 

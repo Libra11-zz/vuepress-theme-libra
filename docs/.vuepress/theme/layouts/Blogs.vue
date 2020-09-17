@@ -29,7 +29,7 @@
           </li>
           <li class="update">
             <i class="iconfont iconUpdate"></i>
-            {{ blog.date }}
+            {{ blog.Update || blog.date }}
           </li>
           <li class="labels">
             <i class="iconfont iconlabel"></i>
@@ -40,7 +40,9 @@
           <img :src="blog.picture" alt width="100%" />
         </div>
         <div class="detail">
-          <div><Content /></div>
+          <div>
+            <Content />
+          </div>
         </div>
       </div>
       <div class="right">
@@ -97,7 +99,7 @@ export default {
     fixedTop() {
       var obj = document.querySelector(".list");
       var ot = obj.offsetTop;
-      document.onscroll = function() {
+      document.onscroll = function () {
         var st = document.body.scrollTop || document.documentElement.scrollTop;
         obj.setAttribute("data-fixed", st >= ot + 20 ? "fixed" : "");
       };

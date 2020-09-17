@@ -36,6 +36,7 @@ tag:
   - javascript
 picture: https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/flutter_clean_4.png
 date: "2019-10-14"
+Update: "2019-10-18"
 ---
 ```
 
@@ -45,6 +46,7 @@ date: "2019-10-14"
 - `tag`: 文章标签
 - `picture`: 文章缩略图`thumbnail`
 - `date`: 发表日期
+- `Update`: 更新日期（可选，没有则默认为发表日期）
 
 # 部署（仅为 github Page 上的部署）
 
