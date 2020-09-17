@@ -48,7 +48,7 @@
                 {{ Blogs[0].frontmatter.category }}
               </span>
             </div>
-            <router-link class="bottom-right" :to="`/articleDetail/`">
+            <router-link class="bottom-right" :to="Blogs[0].path">
               阅读更多
               <i class="iconfont icon-Right-Arrow"></i>
             </router-link>
@@ -114,7 +114,7 @@ export default {
   },
   methods: {
     getRecentBlogs() {
-      let pages = this.$site.pages.slice(0, 9);
+      let pages = this.$site.pages;
       return pages.filter((item) => {
         const { date } = item.frontmatter;
         return date !== undefined;
@@ -122,7 +122,7 @@ export default {
     },
   },
   created() {
-    this.Blogs = sortBlog(this.getRecentBlogs());
+    this.Blogs = sortBlog(this.getRecentBlogs()).slice(0, 9);
   },
   components: {
     MyHeader,

@@ -58,10 +58,7 @@
         <info-card />
       </div>
     </div>
-    <pagination
-      :totalPages="Math.ceil(getAllBlogs().length / 8)"
-      :changePage="changePage"
-    ></pagination>
+    <pagination :totalPages="Math.ceil(getAllBlogs().length / 8)" :changePage="changePage"></pagination>
     <my-footer></my-footer>
   </div>
 </template>
@@ -75,6 +72,7 @@ import InfoCard from "@theme/components/InfoCard";
 import MobileBlogItem from "@theme/components/MobileBlogItem";
 import MobileLabel from "@theme/components/MobileLabel";
 import Pagination from "@theme/components/Pagination";
+import { sortBlog } from "../utils";
 export default {
   data() {
     return {
@@ -91,11 +89,11 @@ export default {
       });
     },
     changePage(n) {
-      this.Blogs = this.getAllBlogs().slice((n - 1) * 8, 8 * n);
+      this.Blogs = sortBlog(this.getAllBlogs()).slice((n - 1) * 8, 8 * n);
     },
   },
   created() {
-    this.Blogs = this.getAllBlogs().slice(0, 8);
+    this.Blogs = sortBlog(this.getAllBlogs()).slice(0, 8);
   },
   components: {
     MyHeader,
