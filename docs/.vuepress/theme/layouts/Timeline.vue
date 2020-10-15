@@ -208,14 +208,17 @@ export default {
         padding: 10px 0;
         max-width: 44%;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       .timeline-article .content-left,
       .timeline-article .content-right {
         position: relative;
-        width: auto;
+        width: 97%;
         border-radius: 5px;
         background-color: @backgroundColor6;
-        box-shadow: 0px 2px 12px 0 #000000;
+        box-shadow: 2px 2px 5px 0 #000000;
         overflow: hidden;
         padding: 20px 10px;
       }
@@ -241,26 +244,26 @@ export default {
         font-family: "Libra";
         color: #fff;
       }
-      .timeline-article .content-left:before {
-        content: "";
-        position: absolute;
-        top: 16px;
-        left: 100%;
-        height: 0;
-        width: 0;
-        border: 7px solid transparent;
-        border-left: 7px solid @backgroundColor6;
-      }
-      .timeline-article .content-right:before {
-        content: "";
-        position: absolute;
-        top: 16px;
-        left: -14px;
-        height: 0;
-        width: 0;
-        border: 7px solid transparent;
-        border-right: 7px solid @backgroundColor6;
-      }
+      // .timeline-article .content-left:before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 16px;
+      //   left: 100%;
+      //   height: 0;
+      //   width: 0;
+      //   border: 7px solid transparent;
+      //   border-left: 7px solid @backgroundColor6;
+      // }
+      // .timeline-article .content-right:before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 16px;
+      //   left: -14px;
+      //   height: 0;
+      //   width: 0;
+      //   border: 7px solid transparent;
+      //   border-right: 7px solid @backgroundColor6;
+      // }
       .timeline-article .meta-icon {
         position: absolute;
         top: 0;
@@ -323,6 +326,7 @@ export default {
         }
         .timeline-article .content-left,
         .timeline-article .content-right {
+          width: 93%;
           padding: 10px 25px;
           min-height: 65px;
         }
