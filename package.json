@@ -9,15 +9,16 @@
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
-    "vuepress": "^1.5.4"
+    "vuepress": "^1.5.4",
+    "vuepress-plugin-table-of-contents": "^1.1.7"
   },
   "dependencies": {
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
     "vue": "2.6.12",
-    "vue-template-compiler": "2.6.12",
-    "vue-server-renderer": "2.6.12",
     "vue-particles": "^1.0.9",
-    "vue-router": "3.0.7"
+    "vue-router": "3.0.7",
+    "vue-server-renderer": "2.6.12",
+    "vue-template-compiler": "2.6.12"
   }
 }

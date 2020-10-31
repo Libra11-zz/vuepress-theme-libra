@@ -12,6 +12,7 @@ module.exports = {
       },
     ],
   ],
+  plugins: ['vuepress-plugin-table-of-contents'],
   locales: {
     "/": {
       lang: "en-US", // 将会被设置为 <html> 的 lang 属性

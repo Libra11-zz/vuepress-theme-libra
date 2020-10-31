@@ -44,20 +44,22 @@
             <Content />
           </div>
         </div>
+        <Comment />
       </div>
       <div class="right">
         <category-card />
         <info-card />
-        <ul class="list">
-          <li
+        <div class="list">
+          <!-- <li
             v-for="(item, index) in hs"
             :key="index"
             class="catalog-list"
             :style="`padding-left: ${(parseFloat(item.tagName[1]) - 1) * 20}px`"
           >
             <a :href="`#heading-${index}`" v-html="item.innerHTML"></a>
-          </li>
-        </ul>
+          </li> -->
+           <TOC/>
+        </div>
       </div>
     </div>
     <my-footer></my-footer>
@@ -69,6 +71,7 @@ import CategoryCard from "@theme/components/CategoryCard";
 import InfoCard from "@theme/components/InfoCard";
 import MyHeader from "@theme/components/Navbar";
 import MyFooter from "@theme/components/Footer";
+import { Comment } from '@vuepress/plugin-blog/lib/client/components'
 import "prismjs/themes/prism-tomorrow.css";
 
 export default {
@@ -81,9 +84,9 @@ export default {
   },
   mounted() {
     this.fixedTop();
-    setTimeout(() => {
-      this.listAndAnchor();
-    }, 1000);
+    // setTimeout(() => {
+    //   this.listAndAnchor();
+    // }, 1000);
   },
   watch: {
     // 路由变化 重新更新数据赋值
@@ -94,15 +97,16 @@ export default {
     },
   },
   methods: {
+    // 已经使用 'vuepress-plugin-table-of-contents' 插件替换了
     // generator markdown catalog
-    listAndAnchor() {
-      let markdownDiv = document.querySelector(".detail>div");
-      this.hs = Array.from(markdownDiv.querySelectorAll("h1, h2"));
-      for (let i = 0; i < this.hs.length; i++) {
-        const item = this.hs[i];
-        item.id = `heading-${i}`;
-      }
-    },
+    // listAndAnchor() {
+    //   let markdownDiv = document.querySelector(".detail>div");
+    //   this.hs = Array.from(markdownDiv.querySelectorAll("h1, h2"));
+    //   for (let i = 0; i < this.hs.length; i++) {
+    //     const item = this.hs[i];
+    //     item.id = `heading-${i}`;
+    //   }
+    // },
     // apply catalog fixed top
     fixedTop() {
       var obj = document.querySelector(".list");
@@ -124,11 +128,12 @@ export default {
     CategoryCard,
     MyHeader,
     MyFooter,
+    Comment
   },
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import "@theme/common/color.less";
 
 @keyframes rotate {
@@ -216,6 +221,9 @@ export default {
       }
       .detail {
         margin-bottom: 80px;
+        a{
+          display:none;
+        }
       }
     }
     .right {
@@ -230,19 +238,22 @@ export default {
         background-color: @backgroundColor6;
         padding: 20px 20px 20px 20px;
         width: 300px;
+        max-height: 600px;
         margin-top: 60px;
         border-radius: 0 0 20px 20px;
-        box-shadow: 0 2px 12px 0 @blackColor;
-        .catalog-list {
-          transition: 0.5s all;
-          padding: 2px 0;
-          &:hover {
-            // background-color: grey;
-            font-size: 1.5rem;
-          }
+        overflow-y: scroll;
+        ul {
+          padding-left: 10px;
         }
         li {
+          list-style:disc;
           a {
+          transition: 0.5s all;
+          display: block;
+          padding: 2px 0;
+          &:hover {
+            font-size: 1.5rem;
+          }
             code {
               color: @whiteColor;
             }

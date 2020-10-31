@@ -90,7 +90,6 @@
         <info-card />
       </div>
     </div>
-    <Content />
     <my-footer></my-footer>
   </div>
 </template>
