@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "@vuepress/plugin-blog": "^1.9.2",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.0.2",
     "vuepress": "^1.5.4",
     "vuepress-plugin-table-of-contents": "^1.1.7"
   },

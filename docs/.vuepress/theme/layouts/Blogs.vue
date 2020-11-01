@@ -84,9 +84,6 @@ export default {
   },
   mounted() {
     this.fixedTop();
-    // setTimeout(() => {
-    //   this.listAndAnchor();
-    // }, 1000);
   },
   watch: {
     // 路由变化 重新更新数据赋值
@@ -97,16 +94,6 @@ export default {
     },
   },
   methods: {
-    // 已经使用 'vuepress-plugin-table-of-contents' 插件替换了
-    // generator markdown catalog
-    // listAndAnchor() {
-    //   let markdownDiv = document.querySelector(".detail>div");
-    //   this.hs = Array.from(markdownDiv.querySelectorAll("h1, h2"));
-    //   for (let i = 0; i < this.hs.length; i++) {
-    //     const item = this.hs[i];
-    //     item.id = `heading-${i}`;
-    //   }
-    // },
     // apply catalog fixed top
     fixedTop() {
       var obj = document.querySelector(".list");
@@ -135,24 +122,6 @@ export default {
 
 <style lang="less">
 @import "@theme/common/color.less";
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 .article {
   display: flex;
   min-height: 100vh;
@@ -223,6 +192,83 @@ export default {
         margin-bottom: 80px;
         a{
           display:none;
+        }
+      }
+      .vssue{
+        .vssue-header-powered-by{
+          display: none;
+        }
+        .vssue-new-comment{
+          .vssue-comment-avatar {
+          border-radius: 50%;
+          border: 2px solid @whiteColor;
+            transition: all 0.5s;
+          overflow: hidden;
+        }
+          }
+          .vssue-comments{
+            .vssue-pagination{
+              .vssue-pagination-per-page{
+                .vssue-pagination-select{
+                  color: #3eaf7c;
+                  border:none;
+                  background-image: none;
+                  appearance:button;
+                  padding-right: 0;
+                  &:focus{
+                    background-color: transparent;
+                    box-shadow: none;
+                  }
+                }
+              }
+            }
+            .vssue-comment{
+              .vssue-comment-avatar{
+                border-radius: 50%;
+                overflow: hidden;
+                border: 2px solid @whiteColor;
+              }
+              .vssue-comment-body{
+                background-color: @backgroundColor6;
+            box-shadow: 0 2px 10px 0 #000000;
+            border-radius: 5px;
+                .vssue-comment-header{
+                  border: none;
+                }
+                .vssue-comment-main{
+                  border: none;
+                  padding-top: 0;
+                  padding-bottom: 0;
+                  .vssue-edit-comment-input{
+                    color: @whiteColor;
+                  }
+                  .markdown-body{
+                    color: @whiteColor;
+                  }
+                }
+                .vssue-comment-footer{
+                  border: none;
+                }
+              }
+            }
+          }
+        .vssue-new-comment-body {
+          .vssue-new-comment-input{
+            border: none;
+            color: @whiteColor;
+            background-color: @backgroundColor6;
+            box-shadow: 0 2px 10px 0 #000000;
+          }
+        }
+        .vssue-new-comment-footer {
+          .vssue-new-comment-operations{
+            .vssue-button{
+              // padding: 0;
+              border: 1px solid @whiteColor;
+              font-size: 12px;
+              color: @whiteColor;
+            }
+          }
         }
       }
     }
