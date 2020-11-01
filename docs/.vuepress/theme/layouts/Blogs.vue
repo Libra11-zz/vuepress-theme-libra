@@ -204,6 +204,9 @@ export default {
           border: 2px solid @whiteColor;
             transition: all 0.5s;
           overflow: hidden;
+          .vssue-icon{
+                  font-size: 46px;
+                }
         }
           }
           .vssue-comments{
@@ -244,6 +247,9 @@ export default {
                   }
                   .markdown-body{
                     color: @whiteColor;
+                    blockquote::before{
+                      background-color: transparent;
+                    }
                   }
                 }
                 .vssue-comment-footer{

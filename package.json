@@ -8,6 +8,7 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.7.1",
     "@vuepress/plugin-blog": "^1.9.2",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.0.2",

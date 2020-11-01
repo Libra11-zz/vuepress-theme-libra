@@ -12,7 +12,7 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['vuepress-plugin-table-of-contents'],
+  plugins: ['vuepress-plugin-table-of-contents','@vuepress/back-to-top'],
   locales: {
     "/": {
       lang: "en-US", // 将会被设置为 <html> 的 lang 属性
