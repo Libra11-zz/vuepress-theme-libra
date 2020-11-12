@@ -106,7 +106,7 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #fff;
+      background-color: @whiteColor;
       border-radius: 80px;
       overflow: hidden;
       width: 160px;
@@ -170,7 +170,7 @@ export default {
           height: 100px;
           top: -120px;
           left: -15px;
-          background-color: #fff;
+          background-color: @whiteColor;
           display: none;
         }
         &:hover {

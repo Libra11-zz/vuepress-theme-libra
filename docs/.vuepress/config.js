@@ -61,5 +61,16 @@ module.exports = {
       // 头像图片地址
       headerPic: "https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg",
     },
+    comment: {
+      // 是否显示评论列表
+      showComment: true,
+      // The owner's name of repository to store the issues and comments.
+      owner: 'Libra11',
+      // The name of repository to store the issues and comments.
+      repo: 'vuepress-theme-libra',
+      // The clientId & clientSecret introduced in OAuth2 spec.
+      clientId: '07f6df24d9150e2da866',
+      clientSecret: 'ec60c756133e4a608e60405110a1fd6c78f19ecc',
+    }
   },
 };

@@ -44,7 +44,7 @@
             <Content />
           </div>
         </div>
-        <Comment />
+        <Comment v-if="$themeConfig.comment.showComment"/>
       </div>
       <div class="right">
         <category-card />
@@ -233,7 +233,7 @@ export default {
               }
               .vssue-comment-body{
                 background-color: @backgroundColor6;
-            box-shadow: 0 2px 10px 0 #000000;
+            box-shadow: 0 2px 10px 0 @blackColor;
             border-radius: 5px;
                 .vssue-comment-header{
                   border: none;
@@ -263,7 +263,7 @@ export default {
             border: none;
             color: @whiteColor;
             background-color: @backgroundColor6;
-            box-shadow: 0 2px 10px 0 #000000;
+            box-shadow: 0 2px 10px 0 @blackColor;
           }
         }
         .vssue-new-comment-footer {

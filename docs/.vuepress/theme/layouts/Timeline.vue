@@ -218,7 +218,7 @@ export default {
         width: 97%;
         border-radius: 5px;
         background-color: @backgroundColor6;
-        box-shadow: 2px 2px 5px 0 #000000;
+        box-shadow: 2px 2px 5px 0 @blackColor;
         overflow: hidden;
         padding: 20px 10px;
       }
@@ -242,28 +242,8 @@ export default {
         top: 20px;
         font-size: 23px;
         font-family: "Libra";
-        color: #fff;
+        color: @whiteColor;
       }
-      // .timeline-article .content-left:before {
-      //   content: "";
-      //   position: absolute;
-      //   top: 16px;
-      //   left: 100%;
-      //   height: 0;
-      //   width: 0;
-      //   border: 7px solid transparent;
-      //   border-left: 7px solid @backgroundColor6;
-      // }
-      // .timeline-article .content-right:before {
-      //   content: "";
-      //   position: absolute;
-      //   top: 16px;
-      //   left: -14px;
-      //   height: 0;
-      //   width: 0;
-      //   border: 7px solid transparent;
-      //   border-right: 7px solid @backgroundColor6;
-      // }
       .timeline-article .meta-icon {
         position: absolute;
         top: 0;

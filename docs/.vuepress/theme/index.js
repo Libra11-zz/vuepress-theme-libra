@@ -1,3 +1,4 @@
+const { themeConfig } = require("../config");
 module.exports = {
   plugins: [
     [
@@ -6,15 +7,15 @@ module.exports = {
         comment: {
           // Which service you'd like to use
           service: 'vssue',
-          // The owner's name of repository to store the issues and comments.
-          owner: 'Libra11',
           locale: 'zh',
-          // The name of repository to store the issues and comments.
-          repo: 'vuepress-theme-libra',
           autoCreateIssue: true,
+          // The owner's name of repository to store the issues and comments.
+          owner: themeConfig.comment.owner,
+          // The name of repository to store the issues and comments.
+          repo: themeConfig.comment.repo,
           // The clientId & clientSecret introduced in OAuth2 spec.
-          clientId: '07f6df24d9150e2da866',
-          clientSecret: 'ec60c756133e4a608e60405110a1fd6c78f19ecc',
+          clientId: themeConfig.comment.clientId,
+          clientSecret: themeConfig.comment.clientSecret
         },
         directories: [
           {

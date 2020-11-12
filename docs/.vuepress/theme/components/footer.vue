@@ -40,7 +40,7 @@ export default {};
       align-items: center;
       .wavetext {
         .text {
-          color: #fff;
+          color: @whiteColor;
           font-size: 1rem;
           font-weight: 100;
           display: inline-block;
