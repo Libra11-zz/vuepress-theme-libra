@@ -1,6 +1,37 @@
 {
-  "name": "theme",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+    "name": "vuepress-theme-libra",
+    "version": "1.0.0",
+    "description": "a vuepress blog template",
+    "main": "config.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Libra11/vuepress-theme-libra.git"
+    },
+    "keywords": [
+      "vuepress"
+    ],
+    "author": "libra",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/Libra11/vuepress-theme-libra/issues"
+    },
+    "homepage": "https://github.com/Libra11/vuepress-theme-libra#readme",
+  "dependencies": {
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "vue": "2.6.12",
+    "vue-particles": "^1.0.9",
+    "vue-router": "3.0.7",
+    "vue-server-renderer": "2.6.12",
+    "vue-template-compiler": "2.6.12",
+    "@vuepress/plugin-back-to-top": "^1.7.1",
+    "@vuepress/plugin-blog": "^1.9.2",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.0.2",
+    "vuepress": "^1.5.4",
+    "vuepress-plugin-table-of-contents": "^1.1.7"
+  }
 }

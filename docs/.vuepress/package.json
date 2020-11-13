@@ -1,0 +1,6 @@
+{
+  "name": "vuepress-theme-libra2",
+  "version": "1.0.1",
+  "description": "a vuepress blog template",
+  "main": "config.js"
+}

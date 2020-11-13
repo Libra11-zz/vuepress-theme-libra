@@ -1,14 +1,15 @@
-const { themeConfig } = require("../config");
+// pro
+// const {themeConfig} = require('../../docs/.vuepress/config.js')
+// dev
+const {themeConfig} = require('../../.vuepress/config.js')
 module.exports = {
   plugins: [
     [
       "@vuepress/blog",
       {
         comment: {
-          // Which service you'd like to use
           service: 'vssue',
           locale: 'zh',
-          autoCreateIssue: true,
           // The owner's name of repository to store the issues and comments.
           owner: themeConfig.comment.owner,
           // The name of repository to store the issues and comments.
@@ -104,4 +105,4 @@ module.exports = {
       },
     ],
   ],
-};
+}
