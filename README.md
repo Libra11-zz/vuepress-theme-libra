@@ -7,30 +7,123 @@
 - 2020.11.01 ～更改评论样式和默认语言,添加返回顶部功能
 - 2020.10.31 ～更改文章目录实现逻辑和样式，修改文章标题显示样式,增加头像转动的小彩蛋,添加 github 评论功能
 - 2020.10.21 ～修复目录内容过多导致的标题显示不全问题
+- 2020.11.13 ～ 1.0.0 版正式发布到 npm
 
 # 快速上手
 
+## 普通方式
+
+### 初始化项目
+
+在任何地方创建一个文件夹，这里命名为`my-blog`,命令行进入这个文件夹
+
 ```
-# clone the project
-git clone https://github.com/Libra11/vuepress-theme-libra.git
+# 第一步
+yarn init -y
+# 或者
+npm init -y
 
-# enter the project directory
-cd vuepress-theme-libra
-
-# install dependency
-npm install # or yarn install
-
-# develop
-npm run dev # or yarn dev
+# 第二步
+# 安装vuepress-theme-libra
+yarn add vuepress-theme-libra --dev
+# 或者
+npm install --save-dev vuepress-theme-libra
 ```
 
-# 配置
+安装完成之后，我们定义一下项目的基本目录结构
 
-在`docs/.vuepress/config.js`里进行博客一些图片和文字的配置，具体信息请看`config.js`中详细内容
+```
+├── docs
+│   ├── .vuepress
+|       |___config.js  //项目的配置文件
+│   └── blogs   // 存放所有博客readme文件,也可以创建文件夹
+|       |___a.md
+|       |___b.md
+├── package.json
+|__ node_modules
+```
 
-# 写作
+接着在`package.json`中加入下面的命令代码
 
-在`docs/blogs`里面添加博客文章（目前里面有一些测试文章），文章为`markdown`格式,文章以以下内容开头
+```
+...
+"scripts": {
+  "dev": "vuepress dev docs"
+},
+...
+```
+
+然后将下面的配置文件复制到`config.js`中,并根据自己的需求更改
+
+```javascript
+module.exports = {
+  title: "Libra",
+  theme: "libra",
+  base: "/libra-static-blog/",
+  head: [
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    [
+      "meta",
+      {
+        name: "viewport",
+        content: "width=device-width,initial-scale=1,user-scalable=no",
+      },
+    ],
+  ],
+  // theme:
+  themeConfig: {
+    // 主页
+    home: {
+      title: "Libra",
+      subTitle: "在生活里，我们永远是初学者",
+    },
+    // 页脚
+    footer: {
+      // 版权信息
+      copyright: "Copyright © 2019-2020 Libra | 版权所有",
+    },
+    // 个人信息卡片
+    infoCard: {
+      // 头像
+      headerPic: "https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg",
+      // 姓名
+      name: "Libra",
+      // 邮箱
+      mail: "libra085925@gmail.com",
+    },
+    // 联系人页面
+    contact: {
+      title: "Hello There !!!!",
+      subTitle1: "Thank you for visiting my blog",
+      subTitle2: "Hope we can make progress together",
+      // 微信二维码地址
+      wechat:
+        "https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png",
+      // 邮箱
+      mail: "libra085925@gmail.com",
+      // github地址
+      github: "https://github.com/Libra11",
+      // 头像图片地址
+      headerPic: "https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg",
+    },
+    comment: {
+      // 是否显示评论列表
+      showComment: false,
+      // The owner's name of repository to store the issues and comments.
+      owner: "Libra11",
+      // The name of repository to store the issues and comments.
+      repo: "vuepress-theme-libra",
+      // The clientId & clientSecret introduced in OAuth2 spec.
+      clientId: "07f6df24d9150e2da866",
+      clientSecret: "ec60c756133e4a608e60405110a1fd6c78f19ecc",
+    },
+  },
+};
+```
+
+### 写作
+
+在`docs/blogs`里面添加博客文章，文章为`markdown`格式,文章以以下内容开头
 
 ```
 ---
@@ -54,51 +147,18 @@ Update: "2019-10-18"
 - `date`: 发表日期
 - `Update`: 更新日期（可选，没有则默认为发表日期）
 
-# 部署（仅为 github Page 上的部署）
+添加好文章之后，控制台运行`yarn dev`或者`npm run dev`即可打开预览。
 
-1. 修改 `config.js`里的`base`的值，如果发布到 `https://<USERNAME>.github.io`，可以不设置`base`的值，以为其默认值为`/`,# 如果发布到 `https://<USERNAME>.github.io/<REPO>`,则需要将`base`得值设为`/REPO/`
-2. 在`github`上建一个新的`repo`，名称为下面`deplohy.sh`里配置的`repo`名称
-3. 项目根目录下有一个`deploy.sh`文件，复制以下配置，根据实际情况选择对应选项
+### 部署
 
-```
-#!/usr/bin/env sh
+控制台运行`vuepress build docs`即可在`.vuepress`文件夹下生成`dist`文件夹，包含了所有`html`、`css`、`js`以及静态文件，然后部署即可。
 
-# 确保脚本抛出遇到的错误
-set -e
+## 脚手架方式
 
-# 生成静态文件(有yarn使用yarn，没有也可以使用npm)
-# npm run build
-yarn build
-
-# 进入生成的文件夹
-cd docs/.vuepress/dist
-
-# 如果是发布到自定义域名
-# echo 'www.example.com' > CNAME
-
-git init
-git add -A
-git commit -m 'deploy'
-
-# 如果发布到 https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-# 如果发布到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
-
-cd -
-```
-
-配置完成之后直接运行`deploy.sh`,会将打包好的代码上传到你的`repo`仓库的`gh-pages`分支 4.进入`github`的`repo`仓库，点击`Settings`,下拉找到`GitHub Pages`选项，`Branch`选择`gh-pages`，目录选择根目录`/root`,然后点击`save`，`github`将自动为你生成链接，访问链接即可访问到你的博客。
-
-> 注意 `mac`下如果没有成功,报出问题 `Permission denied`。就是没有权限。修改该文件 deploy.sh 的权限 ：使用命令： `chmod 777 deploy.sh`,然后再运行即可。
-
-![image](https://libra321.oss-cn-huhehaote.aliyuncs.com/github/84CBEB9D-AF4D-4E20-ACC2-12DD6CB5332F.png)
+> 脚手架目前在开发中，脚手架方式会更加方便简单，会自动生成上面目录结构和配置文件，敬请期待。
 
 # 支持
 
 > 给作者买一杯咖啡
 
 ![image](https://libra321.oss-cn-huhehaote.aliyuncs.com/github/Group%202.png)
-
-**项目目前为测试阶段，谨慎使用  😎**
