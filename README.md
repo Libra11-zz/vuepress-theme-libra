@@ -11,6 +11,12 @@
 
 # 快速上手
 
+首先需要保证你已经全局安装了`vuepress`
+
+```
+yarn add -D vuepress # npm install -D vuepress
+```
+
 ## 普通方式
 
 ### 初始化项目
@@ -28,6 +34,7 @@ npm init -y
 yarn add vuepress-theme-libra --dev
 # 或者
 npm install --save-dev vuepress-theme-libra
+# 如果使用npm安装，遇到Not Found，那么请将npm源切回 npm.org然后再进行安装
 ```
 
 安装完成之后，我们定义一下项目的基本目录结构
@@ -59,6 +66,9 @@ npm install --save-dev vuepress-theme-libra
 module.exports = {
   title: "Libra",
   theme: "libra",
+  // 部署站点的基础路径，如果你想让你的网站部署到一个子路径下，你将需要设置它。如 GitHub pages，如果你想将你的网站部署到 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/"，它的值应当总是以斜杠开始，并以斜杠结束。
+  // base 将会作为前缀自动地插入到所有以 / 开始的其他选项的链接中，所以你只需要指定一次。
+  // 比如说你想部署到服务器上跟路径，那么你只需要将base设置为 / 即可。
   base: "/libra-static-blog/",
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
