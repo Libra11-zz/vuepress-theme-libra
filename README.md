@@ -17,6 +17,8 @@
 yarn add -D vuepress # npm install -D vuepress
 ```
 
+> 在运行项目之前，请确保 blogs 文件夹里面至少有一篇文章，关于如何写文章，请参考[写作](###写作)
+
 ## 脚手架方式
 
 ```
