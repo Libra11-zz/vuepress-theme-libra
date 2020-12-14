@@ -17,6 +17,25 @@
 yarn add -D vuepress # npm install -D vuepress
 ```
 
+## 脚手架方式
+
+```
+# 全局安装 vuepress-theme-libra-cli
+yarn global add vuepress-theme-libra-cli
+
+# 使用vuepress-theme-libra-cli创建项目
+vuepress-theme-libra-cli create <项目名称>
+
+# 创建完成之后
+
+cd <项目名称>
+yarn dev
+```
+
+配置文件在 docs/.vuepress/config.js
+
+[写作](###写作)
+
 ## 普通方式
 
 ### 初始化项目
@@ -162,10 +181,6 @@ Update: "2019-10-18"
 ### 部署
 
 控制台运行`vuepress build docs`即可在`.vuepress`文件夹下生成`dist`文件夹，包含了所有`html`、`css`、`js`以及静态文件，然后部署即可。
-
-## 脚手架方式
-
-> 脚手架目前在开发中，脚手架方式会更加方便简单，会自动生成上面目录结构和配置文件，敬请期待。
 
 # 支持
 
