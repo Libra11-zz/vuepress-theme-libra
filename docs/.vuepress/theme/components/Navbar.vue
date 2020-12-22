@@ -50,7 +50,7 @@
             />
           </div>
           <span class="name">{{$themeConfig.infoCard.name}}</span>
-          <i class="mail">{{$themeConfig.infoCard.name}}</i>
+          <i class="mail">{{$themeConfig.infoCard.mail}}</i>
           <div class="statistics">
             <span class="articles">
               {{ totalCount }}
