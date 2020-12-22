@@ -57,7 +57,7 @@
               </div>
               <div class="meta-icon animated zoomIn">
                 <div class="inner">
-                  <i>L</i>
+                  <i>{{$themeConfig.logo || 'L'}}</i>
                 </div>
               </div>
             </div>

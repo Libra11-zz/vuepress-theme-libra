@@ -12,12 +12,11 @@ module.exports = {
       },
     ],
   ],
-  plugins: [
-    'vuepress-plugin-table-of-contents',
-    '@vuepress/back-to-top',
-  ],
+  plugins: ["vuepress-plugin-table-of-contents", "@vuepress/back-to-top"],
   // theme:
   themeConfig: {
+    // Logo
+    logo: "L",
     // 主页
     home: {
       title: "Libra",
@@ -54,10 +53,10 @@ module.exports = {
     },
     comment: {
       showComment: true,
-      owner: 'Libra11',
-      repo: 'vuepress-theme-libra',
-      clientId: '07f6df24d9150e2da866',
-      clientSecret: 'ec60c756133e4a608e60405110a1fd6c78f19ecc',
-    }
+      owner: "Libra11",
+      repo: "vuepress-theme-libra",
+      clientId: "07f6df24d9150e2da866",
+      clientSecret: "ec60c756133e4a608e60405110a1fd6c78f19ecc",
+    },
   },
 };

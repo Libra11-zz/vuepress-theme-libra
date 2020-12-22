@@ -294,6 +294,7 @@ export default {
         margin-top: 60px;
         border-radius: 0 0 20px 20px;
         overflow-y: scroll;
+        box-shadow: 0 2px 12px 0 @blackColor;
         ul {
           padding-left: 10px;
         }

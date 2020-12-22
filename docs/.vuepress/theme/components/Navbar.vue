@@ -1,7 +1,7 @@
 <template>
   <nav class="topbar">
     <span class="logo">
-      <span class="logo-text">L</span>
+      <span class="logo-text">{{$themeConfig.logo || "L"}}</span>
     </span>
     <ul class="menu">
       <li class="menu-item">
@@ -25,11 +25,6 @@
     </ul>
     <div class="search">
       <i class="iconfont iconsearch"></i>
-      <!-- <input
-        placeholder="请输入搜索的内容..."
-        class="search-input"
-        type="text"
-      />-->
       <search-box></search-box>
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
@@ -39,7 +34,6 @@
       <nav v-show="showNav" class="mobile-nav-item">
         <div class="header-button">
           <i @click="handleMobileNav" class="iconfont iconback"></i>
-          <!-- <i class="iconfont iconlanguage" @click="switchLanguage"></i> -->
         </div>
         <div class="header-info">
           <div class="avatar">
