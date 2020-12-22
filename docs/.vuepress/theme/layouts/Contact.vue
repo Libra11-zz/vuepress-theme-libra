@@ -34,11 +34,17 @@
         </div>
       </div>
       <div class="contact-bottom">
-        <a
+        <!-- <a
           href="tencent://message/?uin=97220040&Site=Sambow&Menu=yes"
           class="icon-container"
         >
           <i class="iconfont iconQQ"></i>
+        </a> -->
+        <a class="icon-container weixin">
+          <i class="iconfont iconQQ"></i>
+          <div class="qrcode">
+            <img :src="$themeConfig.contact.qq" alt />
+          </div>
         </a>
         <a class="icon-container weixin">
           <i class="iconfont iconweixin"></i>

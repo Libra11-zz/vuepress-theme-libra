@@ -1,7 +1,7 @@
 // pro
-// const { themeConfig } = require("../../docs/.vuepress/config.js");
+const { themeConfig } = require("../../docs/.vuepress/config.js");
 // dev
-const { themeConfig } = require("../../.vuepress/config.js");
+// const { themeConfig } = require("../../.vuepress/config.js");
 module.exports = {
   plugins: [
     [
