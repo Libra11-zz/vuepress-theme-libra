@@ -37,11 +37,17 @@ export default {
     },
     prevOrNext(n) {
       this.Page += n;
-      this.Page < 1
-        ? (this.Page = 1)
-        : this.Page > this.totalPages
-        ? (this.Page = this.totalPages)
-        : null;
+      // this.Page < 1
+      //   ? (this.Page = 1)
+      //   : this.Page > this.totalPages
+      //   ? (this.Page = this.totalPages)
+      //   : null;
+      if (this.Page < 1) {
+        this.Page = 1
+        return
+      } else if (this.Page > this.totalPages){
+        this.Page = this.totalPages
+      }
       this.changePage(this.Page);
     },
   },

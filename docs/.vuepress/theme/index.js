@@ -1,22 +1,22 @@
 // pro
-const {themeConfig} = require('../../docs/.vuepress/config.js')
+// const {themeConfig} = require('../../docs/.vuepress/config.js')
 // dev
-// const {themeConfig} = require('../../.vuepress/config.js')
+const { themeConfig } = require("../../.vuepress/config.js");
 module.exports = {
   plugins: [
     [
       "@vuepress/blog",
       {
         comment: {
-          service: 'vssue',
-          locale: 'zh',
+          service: "vssue",
+          locale: "zh",
           // The owner's name of repository to store the issues and comments.
           owner: themeConfig.comment.owner,
           // The name of repository to store the issues and comments.
           repo: themeConfig.comment.repo,
           // The clientId & clientSecret introduced in OAuth2 spec.
           clientId: themeConfig.comment.clientId,
-          clientSecret: themeConfig.comment.clientSecret
+          clientSecret: themeConfig.comment.clientSecret,
         },
         directories: [
           {
@@ -105,4 +105,4 @@ module.exports = {
       },
     ],
   ],
-}
+};

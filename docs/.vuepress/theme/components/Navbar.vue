@@ -44,13 +44,13 @@
         <div class="header-info">
           <div class="avatar">
             <img
-              src="https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg"
+              :src="$themeConfig.infoCard.headerPic"
               alt
               class="avatar-img"
             />
           </div>
-          <span class="name">Libra</span>
-          <i class="mail">libra085925@gmail.com</i>
+          <span class="name">{{$themeConfig.infoCard.name}}</span>
+          <i class="mail">{{$themeConfig.infoCard.name}}</i>
           <div class="statistics">
             <span class="articles">
               {{ totalCount }}

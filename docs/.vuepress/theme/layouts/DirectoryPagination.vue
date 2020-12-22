@@ -105,7 +105,6 @@ export default {
     },
     getCurrentCategoryOrTag() {
       if (this.isCategory) {
-        console.log(this.$currentCategory);
         return this.$currentCategory.path.split("/")[2];
       } else {
         return this.$currentTag.path.split("/")[2];
@@ -113,19 +112,36 @@ export default {
     },
     changePage(n) {
       // 报错没找到原因  目前被我catch掉了  找到原因的小伙伴可以私信一下我
-      if (n !== 1) {
+      // if (n !== 1) {
+      //   if (this.isCategory) {
+      //     this.$router
+      //       .push(`/category/${this.current}/page/${n}`)
+      //       .catch(() => {});
+      //   } else {
+      //     this.$router.push(`/tag/${this.current}/page/${n}`).catch(() => {});
+      //   }
+      // } else {
+      //   if (this.isCategory) {
+      //     this.$router.push(`/category/${this.current}`).catch(() => {});
+      //   } else {
+      //     this.$router.push(`/tag/${this.current}`).catch(() => {});
+      //   }
+      // }
+      if (n === 1) {
         if (this.isCategory) {
           this.$router
-            .push(`/category/${this.current}/page/${n}`)
+            .push(`/category/${this.getCurrentCategoryOrTag()}`)
             .catch(() => {});
         } else {
-          this.$router.push(`/tag/${this.current}/page/${n}`).catch(() => {});
+          this.$router.push(`/tag/${this.getCurrentCategoryOrTag()}`).catch(() => {});
         }
-      } else {
+      }else {
         if (this.isCategory) {
-          this.$router.push(`/category/${this.current}`).catch(() => {});
+          this.$router
+            .push(`/category/${this.getCurrentCategoryOrTag()}/page/${n}`)
+            .catch(() => {});
         } else {
-          this.$router.push(`/tag/${this.current}`).catch(() => {});
+          this.$router.push(`/tag/${this.getCurrentCategoryOrTag()}/page/${n}`).catch(() => {});
         }
       }
     },
