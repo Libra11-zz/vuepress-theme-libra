@@ -103,8 +103,12 @@ module.exports = {
       },
     ],
   ],
+  // 文章目录和 back to top
+  plugins: ["vuepress-plugin-table-of-contents", "@vuepress/back-to-top"],
   // theme:
   themeConfig: {
+    // Logo和时间线里的字母（文字）
+    logo: "L",
     // 主页
     home: {
       title: "Libra",
@@ -129,6 +133,9 @@ module.exports = {
       title: "Hello There !!!!",
       subTitle1: "Thank you for visiting my blog",
       subTitle2: "Hope we can make progress together",
+      // QQ二维码地址
+      qq:
+        "https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png",
       // 微信二维码地址
       wechat:
         "https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png",
