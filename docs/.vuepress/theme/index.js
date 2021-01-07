@@ -1,6 +1,6 @@
-// pro
+// pro 开发
 const { themeConfig } = require("../../docs/.vuepress/config.js");
-// dev
+// dev 开发
 // const { themeConfig } = require("../../.vuepress/config.js");
 module.exports = {
   plugins: [

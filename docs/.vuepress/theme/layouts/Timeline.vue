@@ -57,7 +57,7 @@
               </div>
               <div class="meta-icon animated zoomIn">
                 <div class="inner">
-                  <i>{{$themeConfig.logo || 'L'}}</i>
+                  <i>{{ $themeConfig.logo || "L" }}</i>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
         </section>
       </div>
       <div class="right">
-        <category-card />
+        <label-card />
         <info-card />
       </div>
     </div>
@@ -76,7 +76,7 @@
 <script>
 import MyHeader from "@theme/components/Navbar";
 import MyFooter from "@theme/components/Footer";
-import CategoryCard from "@theme/components/CategoryCard";
+import LabelCard from "@theme/components/LabelCard";
 import InfoCard from "@theme/components/InfoCard";
 import { sortBlog } from "../utils/index.js";
 export default {
@@ -103,7 +103,7 @@ export default {
   components: {
     MyHeader,
     MyFooter,
-    CategoryCard,
+    LabelCard,
     InfoCard,
   },
 };

@@ -1,9 +1,9 @@
 ---
 title: CSS两栏布局
-category: css
+category: css9css9
 desc: 最简单、最全面的CSS两栏布局
 tag:
-  - css
+  - css9css9
 picture: https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/AF4A1FEB-0F0C-447D-8905-306FABA94833.png
 date: "2020-11-12"
 ---

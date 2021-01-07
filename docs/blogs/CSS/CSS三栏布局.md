@@ -1,9 +1,9 @@
 ---
 title: CSS三栏布局
-category: css
+category: css7
 desc: 最简单、最全面的CSS三栏布局
 tag:
-  - css
+  - css7
 picture: https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/34C75FB4-EF1A-4D2F-937A-4B6A66F231D5.png
 date: "2020-11-12"
 ---
